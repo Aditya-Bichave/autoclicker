@@ -6,10 +6,14 @@ import random
 from ctypes import wintypes
 from PySide6.QtCore import QObject, Signal
 from core.logging_setup import get_logger
+from core.screen_utils import get_virtual_screen_rect
 
 log = get_logger("engine")
 
 IS_WINDOWS = platform.system() == "Windows"
+
+VX, VY, VW, VH = get_virtual_screen_rect()
+log.info(f"Screen Metrics: VX={VX}, VY={VY}, VW={VW}, VH={VH}")
 
 if IS_WINDOWS:
     user32 = ctypes.WinDLL("user32", use_last_error=True)
@@ -25,18 +29,6 @@ if IS_WINDOWS:
     MOUSEEVENTF_ABSOLUTE = 0x8000
     MOUSEEVENTF_MOVE = 0x0001
     MOUSEEVENTF_VIRTUALDESK = 0x4000
-
-    SM_XVIRTUALSCREEN = 76
-    SM_YVIRTUALSCREEN = 77
-    SM_CXVIRTUALSCREEN = 78
-    SM_CYVIRTUALSCREEN = 79
-
-    VX = user32.GetSystemMetrics(SM_XVIRTUALSCREEN)
-    VY = user32.GetSystemMetrics(SM_YVIRTUALSCREEN)
-    VW = user32.GetSystemMetrics(SM_CXVIRTUALSCREEN)
-    VH = user32.GetSystemMetrics(SM_CYVIRTUALSCREEN)
-
-    log.info(f"Screen Metrics: VX={VX}, VY={VY}, VW={VW}, VH={VH}")
 
     class MOUSEINPUT(ctypes.Structure):
         _fields_ = [
