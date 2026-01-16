@@ -27,12 +27,14 @@ jobs:
         pip install -r requirements.txt
         pip install pytest pytest-cov pytest-qt coverage
 
-    - name: Setup Headless Display
-      uses: pyvista/setup-headless-display-action@v2
+    - name: Install System Dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y xvfb libgl1-mesa-dev libxkbcommon-x11-0 libxcb-icccm4 libxcb-image0 libxcb-keysyms1 libxcb-randr0 libxcb-render-util0 libxcb-xinerama0 libxcb-xfixes0 libegl1-mesa
 
     - name: Run Tests with Coverage
       run: |
-        pytest --cov=core --cov=engine --cov=macro --cov=ui --cov=scheduler --cov-report=term-missing --cov-report=xml tests/ | tee coverage.txt
+        xvfb-run -a pytest --cov=core --cov=engine --cov=macro --cov=ui --cov=scheduler --cov-report=term-missing --cov-report=xml tests/ | tee coverage.txt
 
     - name: Create Coverage Comment
       if: github.event_name == 'pull_request'
