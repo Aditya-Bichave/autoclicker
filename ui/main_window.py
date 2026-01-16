@@ -787,8 +787,10 @@ class MainWindow(QWidget):
             self.profile_manager.save(name, self.get_config())
 
     def get_config(self):
+        vx, vy, vw, vh = get_virtual_screen_rect()
         return {
             "name": self.profile_name,
+            "resolution": [vw, vh],
             "delay_ms": self.delay.value(),
             "hold_time_ms": self.hold_time.value(),
             "click_type": self.click_type.currentText(),
