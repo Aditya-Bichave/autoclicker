@@ -3,8 +3,15 @@ from logging.handlers import RotatingFileHandler
 from pathlib import Path
 import platform
 import sys
+import os
 
-LOG_DIR = Path("logs")
+# Use executable path for frozen apps or script path
+if getattr(sys, 'frozen', False):
+    BASE_DIR = Path(sys.executable).parent
+else:
+    BASE_DIR = Path(sys.argv[0]).parent
+
+LOG_DIR = BASE_DIR / "logs"
 LOG_DIR.mkdir(exist_ok=True)
 
 handler = RotatingFileHandler(

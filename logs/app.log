@@ -648,3 +648,195 @@
 2026-01-16 00:46:29,729 [WARNING] controller: Kill switch triggered
 2026-01-16 00:46:29,730 [INFO] hotkeys: Hotkeys stopped
 2026-01-16 00:46:29,731 [INFO] engine: Stopping engine
+2026-01-16 07:23:45,999 [INFO] startup: OS: Linux-6.8.0-x86_64-with-glibc2.39
+2026-01-16 07:23:46,000 [INFO] startup: Python: 3.12.12 (main, Nov  7 2025, 00:07:10) [GCC 13.3.0]
+2026-01-16 07:24:46,091 [INFO] startup: OS: Linux-6.8.0-x86_64-with-glibc2.39
+2026-01-16 07:24:46,092 [INFO] startup: Python: 3.12.12 (main, Nov  7 2025, 00:07:10) [GCC 13.3.0]
+2026-01-16 07:25:46,684 [INFO] startup: OS: Linux-6.8.0-x86_64-with-glibc2.39
+2026-01-16 07:25:46,684 [INFO] startup: Python: 3.12.12 (main, Nov  7 2025, 00:07:10) [GCC 13.3.0]
+2026-01-16 07:26:07,041 [INFO] startup: OS: Linux-6.8.0-x86_64-with-glibc2.39
+2026-01-16 07:26:07,041 [INFO] startup: Python: 3.12.12 (main, Nov  7 2025, 00:07:10) [GCC 13.3.0]
+2026-01-16 07:26:07,385 [INFO] profile_manager: Loading profile: test_phase0
+2026-01-16 07:26:07,386 [DEBUG] profile_manager: Profile written: test_phase0.json
+2026-01-16 07:26:07,644 [INFO] hotkeys: Hotkeys started
+2026-01-16 07:27:20,968 [INFO] startup: OS: Linux-6.8.0-x86_64-with-glibc2.39
+2026-01-16 07:27:20,968 [INFO] startup: Python: 3.12.12 (main, Nov  7 2025, 00:07:10) [GCC 13.3.0]
+2026-01-16 07:27:20,968 [INFO] profile_manager: Loading profile: test_v1
+2026-01-16 07:27:20,969 [INFO] profile_manager: Migrating profile test_v1 v1 -> v2
+2026-01-16 07:27:20,969 [DEBUG] profile_manager: Profile written: test_v1.json
+2026-01-16 07:31:42,568 [INFO] startup: OS: Linux-6.8.0-x86_64-with-glibc2.39
+2026-01-16 07:31:42,569 [INFO] startup: Python: 3.12.12 (main, Nov  7 2025, 00:07:10) [GCC 13.3.0]
+2026-01-16 07:31:42,706 [INFO] profile_manager: Loading profile: default
+2026-01-16 07:31:42,706 [INFO] profile_manager: Migrating profile default v1 -> v2
+2026-01-16 07:31:42,707 [DEBUG] profile_manager: Profile written: default.json
+2026-01-16 07:31:42,707 [INFO] profile_manager: Loading profile: default
+2026-01-16 07:31:42,708 [DEBUG] profile_manager: Profile written: default.json
+2026-01-16 07:31:42,710 [INFO] hotkeys: Hotkeys started
+2026-01-16 07:31:42,711 [INFO] profile_manager: Migrating profile unknown v1 -> v2
+2026-01-16 07:31:42,711 [INFO] profile_manager: Saving profile: test_p1
+2026-01-16 07:31:42,712 [DEBUG] profile_manager: Profile written: test_p1.json
+2026-01-16 07:31:42,712 [INFO] controller: Switching to profile: test_p1
+2026-01-16 07:31:42,712 [INFO] profile_manager: Loading profile: test_p1
+2026-01-16 07:31:42,712 [DEBUG] profile_manager: Profile written: test_p1.json
+2026-01-16 07:31:42,713 [INFO] hotkeys: Hotkeys stopped
+2026-01-16 07:31:42,713 [INFO] hotkeys: Hotkeys started
+2026-01-16 07:31:42,713 [INFO] profile_manager: Saving profile: test_p1
+2026-01-16 07:31:42,714 [DEBUG] profile_manager: Profile written: test_p1.json
+2026-01-16 07:31:42,714 [INFO] profile_manager: Loading profile: test_p1
+2026-01-16 07:31:42,715 [DEBUG] profile_manager: Profile written: test_p1.json
+2026-01-16 07:31:42,715 [INFO] profile_manager: Deleted profile: test_p1
+2026-01-16 07:31:42,715 [INFO] controller: Switching to profile: default
+2026-01-16 07:31:42,715 [INFO] profile_manager: Loading profile: default
+2026-01-16 07:31:42,716 [DEBUG] profile_manager: Profile written: default.json
+2026-01-16 07:31:42,716 [INFO] hotkeys: Hotkeys stopped
+2026-01-16 07:31:42,716 [INFO] hotkeys: Hotkeys started
+2026-01-16 07:32:41,523 [INFO] startup: OS: Linux-6.8.0-x86_64-with-glibc2.39
+2026-01-16 07:32:41,523 [INFO] startup: Python: 3.12.12 (main, Nov  7 2025, 00:07:10) [GCC 13.3.0]
+2026-01-16 07:32:41,524 [INFO] profile_manager: Loading profile: test_v1_points
+2026-01-16 07:32:41,524 [INFO] profile_manager: Migrating profile test_v1_points v1 -> v2
+2026-01-16 07:32:41,524 [DEBUG] profile_manager: Profile written: test_v1_points.json
+2026-01-16 07:35:47,314 [INFO] startup: OS: Linux-6.8.0-x86_64-with-glibc2.39
+2026-01-16 07:35:47,315 [INFO] startup: Python: 3.12.12 (main, Nov  7 2025, 00:07:10) [GCC 13.3.0]
+2026-01-16 07:37:54,980 [INFO] startup: OS: Linux-6.8.0-x86_64-with-glibc2.39
+2026-01-16 07:37:54,980 [INFO] startup: Python: 3.12.12 (main, Nov  7 2025, 00:07:10) [GCC 13.3.0]
+2026-01-16 07:37:54,981 [INFO] engine: Engine thread starting
+2026-01-16 07:37:57,482 [INFO] engine: Stopping engine
+2026-01-16 07:38:24,172 [INFO] startup: OS: Linux-6.8.0-x86_64-with-glibc2.39
+2026-01-16 07:38:24,172 [INFO] startup: Python: 3.12.12 (main, Nov  7 2025, 00:07:10) [GCC 13.3.0]
+2026-01-16 07:38:24,173 [INFO] engine: Engine thread starting
+2026-01-16 07:38:26,680 [INFO] engine: Stopping engine
+2026-01-16 07:38:58,310 [INFO] startup: OS: Linux-6.8.0-x86_64-with-glibc2.39
+2026-01-16 07:38:58,310 [INFO] startup: Python: 3.12.12 (main, Nov  7 2025, 00:07:10) [GCC 13.3.0]
+2026-01-16 07:38:58,311 [INFO] engine: Engine thread starting
+2026-01-16 07:39:00,816 [INFO] engine: Stopping engine
+2026-01-16 07:42:49,616 [INFO] startup: OS: Linux-6.8.0-x86_64-with-glibc2.39
+2026-01-16 07:42:49,622 [INFO] startup: Python: 3.12.12 (main, Nov  7 2025, 00:07:10) [GCC 13.3.0]
+2026-01-16 07:42:49,630 [INFO] macro_engine: Macro recording started
+2026-01-16 07:42:49,632 [INFO] macro_engine: Macro recording stopped. 2 events.
+2026-01-16 07:42:49,635 [INFO] macro_manager: Saved macro: test_macro
+2026-01-16 07:42:49,637 [INFO] macro_engine: Macro playback started. Speed: 100.0x
+2026-01-16 07:43:11,978 [INFO] startup: OS: Linux-6.8.0-x86_64-with-glibc2.39
+2026-01-16 07:43:11,978 [INFO] startup: Python: 3.12.12 (main, Nov  7 2025, 00:07:10) [GCC 13.3.0]
+2026-01-16 07:43:11,983 [INFO] macro_engine: Macro recording started
+2026-01-16 07:43:11,985 [INFO] macro_engine: Macro recording stopped. 2 events.
+2026-01-16 07:43:11,987 [INFO] macro_manager: Saved macro: test_macro
+2026-01-16 07:43:11,989 [INFO] macro_engine: Macro playback started. Speed: 100.0x
+2026-01-16 07:45:17,247 [INFO] startup: OS: Linux-6.8.0-x86_64-with-glibc2.39
+2026-01-16 07:45:17,247 [INFO] startup: Python: 3.12.12 (main, Nov  7 2025, 00:07:10) [GCC 13.3.0]
+2026-01-16 07:45:17,340 [INFO] hotkeys: Hotkeys started
+2026-01-16 07:46:20,097 [INFO] startup: OS: Linux-6.8.0-x86_64-with-glibc2.39
+2026-01-16 07:46:20,098 [INFO] startup: Python: 3.12.12 (main, Nov  7 2025, 00:07:10) [GCC 13.3.0]
+2026-01-16 07:46:20,145 [INFO] scheduler: Scheduler started
+2026-01-16 07:46:20,146 [INFO] hotkeys: Hotkeys started
+2026-01-16 07:46:21,145 [INFO] scheduler: Triggering scheduled job: test
+2026-01-16 07:46:22,154 [INFO] controller: Executing scheduled job: {'profile': 'test'}
+2026-01-16 07:46:22,154 [INFO] controller: Switching to profile: test
+2026-01-16 07:46:22,154 [INFO] profile_manager: Loading profile: test
+2026-01-16 07:46:22,154 [INFO] profile_manager: Migrating profile unknown v1 -> v2
+2026-01-16 07:46:22,155 [DEBUG] profile_manager: Profile written: test.json
+2026-01-16 07:46:22,155 [INFO] hotkeys: Hotkeys stopped
+2026-01-16 07:46:22,156 [INFO] hotkeys: Hotkeys started
+2026-01-16 07:46:22,156 [DEBUG] controller: Toggle requested
+2026-01-16 07:46:22,157 [INFO] controller: Engine started
+2026-01-16 07:46:22,158 [INFO] controller: Executing scheduled job: {'executed_today': False, 'profile': 'test', 'time': '07:46'}
+2026-01-16 07:46:22,158 [DEBUG] controller: Toggle requested
+2026-01-16 07:46:23,161 [WARNING] controller: Failsafe timeout reached. Stopping.
+2026-01-16 07:46:23,162 [WARNING] controller: Kill switch triggered
+2026-01-16 07:46:23,162 [INFO] hotkeys: Hotkeys stopped
+2026-01-16 07:46:23,162 [DEBUG] engine: Stop ignored: not running
+2026-01-16 07:46:24,147 [INFO] scheduler: Scheduler stopped
+2026-01-16 07:46:24,248 [WARNING] controller: Kill switch triggered
+2026-01-16 07:46:24,248 [INFO] hotkeys: Hotkeys stopped
+2026-01-16 07:46:24,249 [DEBUG] engine: Stop ignored: not running
+2026-01-16 07:46:24,249 [INFO] scheduler: Scheduler stopped
+2026-01-16 07:56:28,075 [INFO] startup: OS: Linux-6.8.0-x86_64-with-glibc2.39
+2026-01-16 07:56:28,076 [INFO] startup: Python: 3.12.12 (main, Nov  7 2025, 00:07:10) [GCC 13.3.0]
+2026-01-16 07:56:28,409 [INFO] profile_manager: Loading profile: default
+2026-01-16 07:56:28,412 [DEBUG] profile_manager: Profile written: default.json
+2026-01-16 08:54:53,404 [INFO] startup: OS: Linux-6.8.0-x86_64-with-glibc2.39
+2026-01-16 08:54:53,405 [INFO] startup: Python: 3.12.12 (main, Nov  7 2025, 00:07:10) [GCC 13.3.0]
+2026-01-16 08:54:53,741 [INFO] profile_manager: Loading profile: bad_profile
+2026-01-16 08:54:53,744 [DEBUG] profile_manager: Profile written: bad_profile.json
+2026-01-16 08:55:28,075 [INFO] startup: OS: Linux-6.8.0-x86_64-with-glibc2.39
+2026-01-16 08:55:28,075 [INFO] startup: Python: 3.12.12 (main, Nov  7 2025, 00:07:10) [GCC 13.3.0]
+2026-01-16 08:55:28,268 [INFO] profile_manager: Loading profile: bad_profile
+2026-01-16 08:55:28,269 [DEBUG] profile_manager: Profile written: bad_profile.json
+2026-01-16 08:56:01,530 [INFO] startup: OS: Linux-6.8.0-x86_64-with-glibc2.39
+2026-01-16 08:56:01,530 [INFO] startup: Python: 3.12.12 (main, Nov  7 2025, 00:07:10) [GCC 13.3.0]
+2026-01-16 08:56:01,700 [INFO] profile_manager: Loading profile: bad_profile
+2026-01-16 08:56:01,702 [DEBUG] profile_manager: Profile written: bad_profile.json
+2026-01-16 09:18:32,335 [INFO] startup: OS: Linux-6.8.0-x86_64-with-glibc2.39
+2026-01-16 09:18:32,336 [INFO] startup: Python: 3.12.12 (main, Nov  7 2025, 00:07:10) [GCC 13.3.0]
+2026-01-16 09:18:32,556 [INFO] profile_manager: Loading profile: default
+2026-01-16 09:18:32,559 [DEBUG] profile_manager: Profile written: default.json
+2026-01-16 09:18:32,633 [INFO] scheduler: Scheduler started
+2026-01-16 09:18:32,634 [INFO] hotkeys: Hotkeys started
+2026-01-16 09:18:32,636 [INFO] profile_manager: Migrating profile unknown v1 -> v2
+2026-01-16 09:18:32,636 [INFO] profile_manager: Saving profile: test_final
+2026-01-16 09:18:32,637 [DEBUG] profile_manager: Profile written: test_final.json
+2026-01-16 09:18:32,637 [INFO] controller: Switching to profile: test_final
+2026-01-16 09:18:32,637 [INFO] profile_manager: Loading profile: test_final
+2026-01-16 09:18:32,638 [DEBUG] profile_manager: Profile written: test_final.json
+2026-01-16 09:18:32,639 [INFO] hotkeys: Hotkeys stopped
+2026-01-16 09:18:32,640 [INFO] hotkeys: Hotkeys started
+2026-01-16 09:18:32,642 [INFO] profile_manager: Deleted profile: test_final
+2026-01-16 09:18:32,642 [INFO] controller: Switching to profile: default
+2026-01-16 09:18:32,642 [INFO] profile_manager: Loading profile: default
+2026-01-16 09:18:32,643 [DEBUG] profile_manager: Profile written: default.json
+2026-01-16 09:18:32,643 [INFO] hotkeys: Hotkeys stopped
+2026-01-16 09:18:32,643 [INFO] hotkeys: Hotkeys started
+2026-01-16 09:21:48,183 [INFO] startup: OS: Linux-6.8.0-x86_64-with-glibc2.39
+2026-01-16 09:21:48,183 [INFO] startup: Python: 3.12.12 (main, Nov  7 2025, 00:07:10) [GCC 13.3.0]
+2026-01-16 09:21:48,343 [INFO] profile_manager: Loading profile: default
+2026-01-16 09:21:48,345 [DEBUG] profile_manager: Profile written: default.json
+2026-01-16 09:21:48,367 [INFO] scheduler: Scheduler started
+2026-01-16 09:21:48,368 [INFO] hotkeys: Hotkeys started
+2026-01-16 09:21:48,371 [INFO] controller: Engine started
+2026-01-16 09:21:48,373 [INFO] controller: Engine stopped
+2026-01-16 09:21:48,385 [WARNING] controller: Kill switch triggered
+2026-01-16 09:21:48,385 [INFO] hotkeys: Hotkeys stopped
+2026-01-16 09:21:48,386 [DEBUG] engine: Stop ignored: not running
+2026-01-16 09:21:48,386 [INFO] scheduler: Scheduler stopped
+2026-01-16 10:08:40,379 [INFO] startup: OS: Linux-6.8.0-x86_64-with-glibc2.39
+2026-01-16 10:08:40,380 [INFO] startup: Python: 3.12.12 (main, Nov  7 2025, 00:07:10) [GCC 13.3.0]
+2026-01-16 10:08:40,527 [INFO] profile_manager: Loading profile: default
+2026-01-16 10:08:40,531 [DEBUG] profile_manager: Profile written: default.json
+2026-01-16 10:08:40,614 [INFO] scheduler: Scheduler started
+2026-01-16 10:08:40,615 [INFO] hotkeys: Hotkeys started
+2026-01-16 10:08:40,617 [WARNING] controller: Kill switch triggered
+2026-01-16 10:08:40,618 [INFO] hotkeys: Hotkeys stopped
+2026-01-16 10:08:40,619 [DEBUG] engine: Stop ignored: not running
+2026-01-16 10:08:40,619 [INFO] scheduler: Scheduler stopped
+2026-01-16 10:08:40,640 [INFO] scheduler: Scheduler started
+2026-01-16 10:08:40,640 [INFO] hotkeys: Hotkeys started
+2026-01-16 10:11:16,580 [INFO] startup: OS: Linux-6.8.0-x86_64-with-glibc2.39
+2026-01-16 10:11:16,581 [INFO] startup: Python: 3.12.12 (main, Nov  7 2025, 00:07:10) [GCC 13.3.0]
+2026-01-16 10:11:16,706 [INFO] profile_manager: Loading profile: default
+2026-01-16 10:11:16,707 [DEBUG] profile_manager: Profile written: default.json
+2026-01-16 10:11:16,730 [INFO] scheduler: Scheduler started
+2026-01-16 10:11:16,730 [INFO] hotkeys: Hotkeys started
+2026-01-16 10:11:16,732 [INFO] profile_manager: Migrating profile unknown v1 -> v2
+2026-01-16 10:11:16,732 [INFO] profile_manager: Saving profile: test_final
+2026-01-16 10:11:16,733 [DEBUG] profile_manager: Profile written: test_final.json
+2026-01-16 10:11:16,733 [INFO] controller: Switching to profile: test_final
+2026-01-16 10:11:16,733 [INFO] profile_manager: Loading profile: test_final
+2026-01-16 10:11:16,734 [DEBUG] profile_manager: Profile written: test_final.json
+2026-01-16 10:11:16,734 [INFO] hotkeys: Hotkeys stopped
+2026-01-16 10:11:16,735 [INFO] hotkeys: Hotkeys started
+2026-01-16 10:11:16,737 [INFO] profile_manager: Deleted profile: test_final
+2026-01-16 10:11:16,737 [INFO] controller: Switching to profile: default
+2026-01-16 10:11:16,737 [INFO] profile_manager: Loading profile: default
+2026-01-16 10:11:16,738 [DEBUG] profile_manager: Profile written: default.json
+2026-01-16 10:11:16,738 [INFO] hotkeys: Hotkeys stopped
+2026-01-16 10:11:16,738 [INFO] hotkeys: Hotkeys started
+2026-01-16 11:14:47,734 [INFO] startup: OS: Linux-6.8.0-x86_64-with-glibc2.39
+2026-01-16 11:14:47,735 [INFO] startup: Python: 3.12.12 (main, Nov  7 2025, 00:07:10) [GCC 13.3.0]
+2026-01-16 11:14:47,741 [INFO] engine: Engine thread starting
+2026-01-16 11:14:47,840 [INFO] engine: Click limit reached: 50
+2026-01-16 11:14:47,841 [INFO] engine: Engine loop finished
+2026-01-16 11:14:49,763 [DEBUG] engine: Stop ignored: not running
+2026-01-16 11:15:12,508 [INFO] startup: OS: Linux-6.8.0-x86_64-with-glibc2.39
+2026-01-16 11:15:12,508 [INFO] startup: Python: 3.12.12 (main, Nov  7 2025, 00:07:10) [GCC 13.3.0]
+2026-01-16 11:15:12,515 [INFO] engine: Engine thread starting
+2026-01-16 11:15:12,614 [INFO] engine: Click limit reached: 50
+2026-01-16 11:15:12,614 [INFO] engine: Engine loop finished

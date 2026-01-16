@@ -1,5 +1,5 @@
 {
-    "version": 1,
+    "version": 2,
     "name": "default",
     "delay_ms": 25,
     "click_type": "left",
@@ -7,73 +7,164 @@
     "toggle_key": "f7",
     "kill_key": "esc",
     "points": [
-        [
-            1478,
-            464
-        ],
-        [
-            1408,
-            519
-        ],
-        [
-            1496,
-            506
-        ],
-        [
-            1422,
-            408
-        ],
-        [
-            1411,
-            500
-        ],
-        [
-            1435,
-            458
-        ],
-        [
-            1530,
-            498
-        ],
-        [
-            1452,
-            445
-        ],
-        [
-            1464,
-            556
-        ],
-        [
-            1463,
-            444
-        ],
-        [
-            1539,
-            439
-        ],
-        [
-            1453,
-            361
-        ],
-        [
-            1563,
-            526
-        ],
-        [
-            1444,
-            364
-        ],
-        [
-            1491,
-            397
-        ],
-        [
-            1462,
-            999
-        ],
-        [
-            1547,
-            476
-        ]
-    ]
+        {
+            "x": 1478,
+            "y": 464,
+            "type": "left",
+            "delay": 0,
+            "label": "",
+            "group": 0
+        },
+        {
+            "x": 1408,
+            "y": 519,
+            "type": "left",
+            "delay": 0,
+            "label": "",
+            "group": 0
+        },
+        {
+            "x": 1496,
+            "y": 506,
+            "type": "left",
+            "delay": 0,
+            "label": "",
+            "group": 0
+        },
+        {
+            "x": 1422,
+            "y": 408,
+            "type": "left",
+            "delay": 0,
+            "label": "",
+            "group": 0
+        },
+        {
+            "x": 1411,
+            "y": 500,
+            "type": "left",
+            "delay": 0,
+            "label": "",
+            "group": 0
+        },
+        {
+            "x": 1435,
+            "y": 458,
+            "type": "left",
+            "delay": 0,
+            "label": "",
+            "group": 0
+        },
+        {
+            "x": 1530,
+            "y": 498,
+            "type": "left",
+            "delay": 0,
+            "label": "",
+            "group": 0
+        },
+        {
+            "x": 1452,
+            "y": 445,
+            "type": "left",
+            "delay": 0,
+            "label": "",
+            "group": 0
+        },
+        {
+            "x": 1464,
+            "y": 556,
+            "type": "left",
+            "delay": 0,
+            "label": "",
+            "group": 0
+        },
+        {
+            "x": 1463,
+            "y": 444,
+            "type": "left",
+            "delay": 0,
+            "label": "",
+            "group": 0
+        },
+        {
+            "x": 1539,
+            "y": 439,
+            "type": "left",
+            "delay": 0,
+            "label": "",
+            "group": 0
+        },
+        {
+            "x": 1453,
+            "y": 361,
+            "type": "left",
+            "delay": 0,
+            "label": "",
+            "group": 0
+        },
+        {
+            "x": 1563,
+            "y": 526,
+            "type": "left",
+            "delay": 0,
+            "label": "",
+            "group": 0
+        },
+        {
+            "x": 1444,
+            "y": 364,
+            "type": "left",
+            "delay": 0,
+            "label": "",
+            "group": 0
+        },
+        {
+            "x": 1491,
+            "y": 397,
+            "type": "left",
+            "delay": 0,
+            "label": "",
+            "group": 0
+        },
+        {
+            "x": 1462,
+            "y": 999,
+            "type": "left",
+            "delay": 0,
+            "label": "",
+            "group": 0
+        },
+        {
+            "x": 1547,
+            "y": 476,
+            "type": "left",
+            "delay": 0,
+            "label": "",
+            "group": 0
+        }
+    ],
+    "resolution": [
+        1920,
+        1080
+    ],
+    "tuning": {
+        "min_delay_ms": 2,
+        "busy_wait_us": 500,
+        "batch_size": 1,
+        "jitter": {
+            "px": 0,
+            "percent": 0
+        },
+        "cps_cap": 0
+    },
+    "schedule": {
+        "enabled": false,
+        "time": "12:00",
+        "repeat": false
+    },
+    "failsafe": {
+        "enabled": false,
+        "timeout": 60
+    }
 }

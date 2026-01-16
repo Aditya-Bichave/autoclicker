@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "name": "test_macro",
+  "events": [
+    {
+      "t": 0.0027558250001220586,
+      "type": "key_press",
+      "data": {
+        "key": "a"
+      }
+    },
+    {
+      "t": 0.0027614500002073328,
+      "type": "key_release",
+      "data": {
+        "key": "a"
+      }
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 from pynput import keyboard
-from logging_setup import logging
+from core.logging_setup import get_logger
 
-log = logging.getLogger("hotkeys")
+log = get_logger("hotkeys")
 
 KEY_MAP = {
     "esc": keyboard.Key.esc,
