@@ -1,0 +1,69 @@
+# ===============================
+# Python bytecode / cache
+# ===============================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# ===============================
+# Virtual environments
+# ===============================
+.venv/
+venv/
+ENV/
+env/
+
+# ===============================
+# PyInstaller
+# ===============================
+build/
+dist/
+*.spec
+
+# ===============================
+# Logs (runtime generated)
+# ===============================
+logs/
+*.log
+
+# ===============================
+# Profiles (user data)
+# ===============================
+profiles/*.json
+profiles/*.tmp
+
+# Keep folder structure
+!profiles/.gitkeep
+
+# ===============================
+# OS / Editor files
+# ===============================
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# PyCharm
+.idea/
+
+# ===============================
+# Qt / PySide
+# ===============================
+*.qmlc
+*.rcc
+
+# ===============================
+# Temporary / backup files
+# ===============================
+*.bak
+*.tmp
+*.swp
+*.old
+
+# ===============================
+# Windows specific
+# ===============================
+*.exe
+*.dll

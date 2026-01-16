@@ -1,0 +1,650 @@
+2026-01-15 15:29:10,443 [INFO] main: Application starting
+2026-01-15 15:29:10,443 [INFO] config: Loading profile: default
+2026-01-15 15:29:10,445 [DEBUG] config: Profile written: default.json
+2026-01-15 15:29:10,479 [INFO] hotkeys: Hotkeys started
+2026-01-15 15:29:10,699 [INFO] main: UI shown
+2026-01-15 15:30:06,658 [INFO] config: Saving profile: basic
+2026-01-15 15:30:06,659 [DEBUG] config: Profile written: basic.json
+2026-01-15 15:30:10,715 [DEBUG] controller: Toggle requested
+2026-01-15 15:30:10,716 [INFO] engine: Starting engine
+2026-01-15 15:30:10,719 [INFO] controller: Engine started
+2026-01-15 15:30:14,766 [WARNING] hotkeys: Kill hotkey pressed
+2026-01-15 15:30:14,766 [WARNING] controller: Kill switch triggered
+2026-01-15 15:30:14,768 [INFO] engine: Stopping engine
+2026-01-15 15:30:14,777 [INFO] hotkeys: Hotkeys stopped
+2026-01-15 15:30:14,777 [INFO] controller: Engine stopped
+2026-01-15 15:40:03,368 [INFO] bootstrap: === Application Boot ===
+2026-01-15 15:40:03,429 [INFO] bootstrap: OS: Windows-11-10.0.26200-SP0
+2026-01-15 15:40:03,429 [INFO] bootstrap: Python: 3.13.1 (tags/v3.13.1:0671451, Dec  3 2024, 19:06:28) [MSC v.1942 64 bit (AMD64)]
+2026-01-15 15:40:03,567 [INFO] config: Loading profile: default
+2026-01-15 15:40:03,569 [DEBUG] config: Profile written: default.json
+2026-01-15 15:40:03,601 [INFO] hotkeys: Hotkeys started
+2026-01-15 15:40:17,918 [INFO] bootstrap: === Application Boot ===
+2026-01-15 15:40:17,970 [INFO] bootstrap: OS: Windows-11-10.0.26200-SP0
+2026-01-15 15:40:17,970 [INFO] bootstrap: Python: 3.13.1 (tags/v3.13.1:0671451, Dec  3 2024, 19:06:28) [MSC v.1942 64 bit (AMD64)]
+2026-01-15 15:40:18,018 [INFO] config: Loading profile: default
+2026-01-15 15:40:18,020 [DEBUG] config: Profile written: default.json
+2026-01-15 15:40:18,048 [INFO] hotkeys: Hotkeys started
+2026-01-15 15:40:31,165 [INFO] bootstrap: === Application Boot ===
+2026-01-15 15:40:31,224 [INFO] bootstrap: OS: Windows-11-10.0.26200-SP0
+2026-01-15 15:40:31,224 [INFO] bootstrap: Python: 3.13.1 (tags/v3.13.1:0671451, Dec  3 2024, 19:06:28) [MSC v.1942 64 bit (AMD64)]
+2026-01-15 15:46:44,619 [INFO] startup: OS: Windows-11-10.0.26200-SP0
+2026-01-15 15:46:44,619 [INFO] startup: Python: 3.13.1 (tags/v3.13.1:0671451, Dec  3 2024, 19:06:28) [MSC v.1942 64 bit (AMD64)]
+2026-01-15 15:46:44,722 [INFO] main: Application starting
+2026-01-15 15:46:44,722 [INFO] config: Loading profile: default
+2026-01-15 15:46:44,724 [DEBUG] config: Profile written: default.json
+2026-01-15 15:46:44,759 [INFO] hotkeys: Hotkeys started
+2026-01-15 15:46:44,982 [INFO] main: UI shown
+2026-01-15 15:47:25,015 [DEBUG] controller: Toggle requested
+2026-01-15 15:47:25,015 [ERROR] gui: No click points defined
+2026-01-15 15:51:09,380 [INFO] startup: OS: Windows-11-10.0.26200-SP0
+2026-01-15 15:51:09,381 [INFO] startup: Python: 3.13.1 (tags/v3.13.1:0671451, Dec  3 2024, 19:06:28) [MSC v.1942 64 bit (AMD64)]
+2026-01-15 15:53:12,036 [INFO] startup: OS: Windows-11-10.0.26200-SP0
+2026-01-15 15:53:12,037 [INFO] startup: Python: 3.13.1 (tags/v3.13.1:0671451, Dec  3 2024, 19:06:28) [MSC v.1942 64 bit (AMD64)]
+2026-01-15 15:53:12,105 [INFO] main: Application starting
+2026-01-15 15:53:12,105 [INFO] config: Loading profile: default
+2026-01-15 15:53:12,106 [DEBUG] config: Profile written: default.json
+2026-01-15 15:53:12,139 [INFO] hotkeys: Hotkeys started
+2026-01-15 15:53:12,345 [INFO] main: UI shown
+2026-01-15 15:53:13,717 [INFO] gui: Starting point picker
+2026-01-15 15:53:13,718 [INFO] picker: Point picker started
+2026-01-15 15:53:16,127 [INFO] picker: Point picked at (1288, 1073)
+2026-01-15 15:53:16,127 [INFO] gui: Point picker finished
+2026-01-15 15:53:27,590 [INFO] gui: Starting point picker
+2026-01-15 15:53:27,591 [INFO] picker: Point picker started
+2026-01-15 15:53:28,747 [INFO] picker: Point picked at (1478, 464)
+2026-01-15 15:53:28,748 [INFO] gui: Point picker finished
+2026-01-15 15:53:30,674 [INFO] gui: Starting point picker
+2026-01-15 15:53:30,675 [INFO] picker: Point picker started
+2026-01-15 15:53:31,424 [INFO] picker: Point picked at (1408, 519)
+2026-01-15 15:53:31,425 [INFO] gui: Point picker finished
+2026-01-15 15:53:32,556 [INFO] gui: Starting point picker
+2026-01-15 15:53:32,557 [INFO] picker: Point picker started
+2026-01-15 15:53:33,056 [INFO] picker: Point picked at (1496, 506)
+2026-01-15 15:53:33,057 [INFO] gui: Point picker finished
+2026-01-15 15:53:34,217 [INFO] gui: Starting point picker
+2026-01-15 15:53:34,218 [INFO] picker: Point picker started
+2026-01-15 15:53:34,880 [INFO] picker: Point picked at (1422, 408)
+2026-01-15 15:53:34,886 [INFO] gui: Point picker finished
+2026-01-15 15:53:35,897 [INFO] gui: Starting point picker
+2026-01-15 15:53:35,898 [INFO] picker: Point picker started
+2026-01-15 15:53:36,470 [INFO] picker: Point picked at (1411, 500)
+2026-01-15 15:53:36,470 [INFO] gui: Point picker finished
+2026-01-15 15:53:37,311 [INFO] gui: Starting point picker
+2026-01-15 15:53:37,311 [INFO] picker: Point picker started
+2026-01-15 15:53:37,854 [INFO] picker: Point picked at (1435, 458)
+2026-01-15 15:53:37,855 [INFO] gui: Point picker finished
+2026-01-15 15:53:38,758 [INFO] gui: Starting point picker
+2026-01-15 15:53:38,758 [INFO] picker: Point picker started
+2026-01-15 15:53:39,277 [INFO] picker: Point picked at (1530, 498)
+2026-01-15 15:53:39,278 [INFO] gui: Point picker finished
+2026-01-15 15:53:40,294 [INFO] gui: Starting point picker
+2026-01-15 15:53:40,295 [INFO] picker: Point picker started
+2026-01-15 15:53:40,684 [INFO] picker: Point picked at (1452, 445)
+2026-01-15 15:53:40,685 [INFO] gui: Point picker finished
+2026-01-15 15:53:41,613 [INFO] gui: Starting point picker
+2026-01-15 15:53:41,613 [INFO] picker: Point picker started
+2026-01-15 15:53:42,020 [INFO] picker: Point picked at (1464, 556)
+2026-01-15 15:53:42,021 [INFO] gui: Point picker finished
+2026-01-15 15:53:43,020 [INFO] gui: Starting point picker
+2026-01-15 15:53:43,021 [INFO] picker: Point picker started
+2026-01-15 15:53:43,587 [INFO] picker: Point picked at (1463, 444)
+2026-01-15 15:53:43,595 [INFO] gui: Point picker finished
+2026-01-15 15:53:44,884 [INFO] gui: Starting point picker
+2026-01-15 15:53:44,884 [INFO] picker: Point picker started
+2026-01-15 15:53:45,746 [INFO] picker: Point picked at (1539, 439)
+2026-01-15 15:53:45,747 [INFO] gui: Point picker finished
+2026-01-15 15:53:47,258 [INFO] gui: Starting point picker
+2026-01-15 15:53:47,258 [INFO] picker: Point picker started
+2026-01-15 15:53:47,777 [INFO] picker: Point picked at (1453, 361)
+2026-01-15 15:53:47,786 [INFO] gui: Point picker finished
+2026-01-15 15:53:48,883 [INFO] gui: Starting point picker
+2026-01-15 15:53:48,884 [INFO] picker: Point picker started
+2026-01-15 15:53:49,576 [INFO] picker: Point picked at (1563, 526)
+2026-01-15 15:53:49,582 [INFO] gui: Point picker finished
+2026-01-15 15:53:50,631 [INFO] gui: Starting point picker
+2026-01-15 15:53:50,632 [INFO] picker: Point picker started
+2026-01-15 15:53:51,216 [INFO] picker: Point picked at (1444, 364)
+2026-01-15 15:53:51,216 [INFO] gui: Point picker finished
+2026-01-15 15:53:52,192 [INFO] gui: Starting point picker
+2026-01-15 15:53:52,192 [INFO] picker: Point picker started
+2026-01-15 15:53:52,679 [INFO] picker: Point picked at (1491, 397)
+2026-01-15 15:53:52,679 [INFO] gui: Point picker finished
+2026-01-15 15:53:53,609 [INFO] gui: Starting point picker
+2026-01-15 15:53:53,610 [INFO] picker: Point picker started
+2026-01-15 15:53:54,486 [INFO] picker: Point picked at (1462, 999)
+2026-01-15 15:53:54,487 [INFO] gui: Point picker finished
+2026-01-15 15:53:55,735 [INFO] gui: Starting point picker
+2026-01-15 15:53:55,735 [INFO] picker: Point picker started
+2026-01-15 15:53:56,877 [INFO] picker: Point picked at (1547, 476)
+2026-01-15 15:53:56,877 [INFO] gui: Point picker finished
+2026-01-15 15:53:58,693 [DEBUG] controller: Toggle requested
+2026-01-15 15:53:58,693 [INFO] engine: Engine thread starting
+2026-01-15 15:53:58,694 [INFO] controller: Engine started
+2026-01-15 15:54:16,380 [DEBUG] controller: Toggle requested
+2026-01-15 15:54:16,381 [INFO] engine: Stopping engine
+2026-01-15 15:54:16,393 [INFO] controller: Engine stopped
+2026-01-15 15:54:21,012 [DEBUG] controller: Toggle requested
+2026-01-15 15:54:21,013 [INFO] engine: Engine thread starting
+2026-01-15 15:54:21,014 [INFO] controller: Engine started
+2026-01-15 15:54:21,922 [DEBUG] controller: Toggle requested
+2026-01-15 15:54:21,923 [INFO] engine: Stopping engine
+2026-01-15 15:54:21,933 [INFO] controller: Engine stopped
+2026-01-15 15:54:45,170 [INFO] config: Saving profile: default
+2026-01-15 15:54:45,172 [DEBUG] config: Profile written: default.json
+2026-01-15 15:58:03,210 [INFO] gui: Starting point picker
+2026-01-15 15:58:03,210 [INFO] picker: Point picker started
+2026-01-15 15:58:05,047 [INFO] picker: Point picked at (1455, 468)
+2026-01-15 15:58:05,048 [INFO] gui: Point picker finished
+2026-01-15 15:58:11,853 [DEBUG] controller: Toggle requested
+2026-01-15 15:58:11,854 [INFO] engine: Engine thread starting
+2026-01-15 15:58:11,854 [INFO] controller: Engine started
+2026-01-15 15:58:15,313 [DEBUG] controller: Toggle requested
+2026-01-15 15:58:15,314 [INFO] engine: Stopping engine
+2026-01-15 15:58:15,315 [INFO] controller: Engine stopped
+2026-01-15 15:58:18,211 [DEBUG] controller: Toggle requested
+2026-01-15 15:58:18,212 [INFO] engine: Engine thread starting
+2026-01-15 15:58:18,213 [INFO] controller: Engine started
+2026-01-15 15:58:20,698 [DEBUG] controller: Toggle requested
+2026-01-15 15:58:20,699 [INFO] engine: Stopping engine
+2026-01-15 15:58:20,705 [INFO] controller: Engine stopped
+2026-01-15 15:58:24,920 [DEBUG] controller: Toggle requested
+2026-01-15 15:58:24,920 [INFO] engine: Engine thread starting
+2026-01-15 15:58:24,921 [INFO] controller: Engine started
+2026-01-15 15:58:27,550 [DEBUG] controller: Toggle requested
+2026-01-15 15:58:27,551 [INFO] engine: Stopping engine
+2026-01-15 15:58:27,557 [INFO] controller: Engine stopped
+2026-01-15 15:58:33,690 [DEBUG] controller: Toggle requested
+2026-01-15 15:58:33,690 [INFO] engine: Engine thread starting
+2026-01-15 15:58:33,691 [INFO] controller: Engine started
+2026-01-15 15:58:59,273 [DEBUG] controller: Toggle requested
+2026-01-15 15:58:59,273 [INFO] engine: Stopping engine
+2026-01-15 15:58:59,278 [INFO] controller: Engine stopped
+2026-01-15 16:00:05,426 [DEBUG] controller: Toggle requested
+2026-01-15 16:00:05,427 [INFO] engine: Engine thread starting
+2026-01-15 16:00:05,428 [INFO] controller: Engine started
+2026-01-15 16:00:11,318 [DEBUG] controller: Toggle requested
+2026-01-15 16:00:11,319 [INFO] engine: Stopping engine
+2026-01-15 16:00:11,337 [INFO] controller: Engine stopped
+2026-01-15 16:00:17,053 [INFO] gui: Starting point picker
+2026-01-15 16:00:17,054 [INFO] picker: Point picker started
+2026-01-15 16:00:17,852 [INFO] picker: Point picked at (1504, 458)
+2026-01-15 16:00:17,852 [INFO] gui: Point picker finished
+2026-01-15 16:00:18,797 [INFO] gui: Starting point picker
+2026-01-15 16:00:18,798 [INFO] picker: Point picker started
+2026-01-15 16:00:19,275 [INFO] picker: Point picked at (1444, 494)
+2026-01-15 16:00:19,275 [INFO] gui: Point picker finished
+2026-01-15 16:00:20,116 [INFO] gui: Starting point picker
+2026-01-15 16:00:20,117 [INFO] picker: Point picker started
+2026-01-15 16:00:20,531 [INFO] picker: Point picked at (1441, 441)
+2026-01-15 16:00:20,532 [INFO] gui: Point picker finished
+2026-01-15 16:00:21,306 [INFO] gui: Starting point picker
+2026-01-15 16:00:21,307 [INFO] picker: Point picker started
+2026-01-15 16:00:21,737 [INFO] picker: Point picked at (1460, 472)
+2026-01-15 16:00:21,738 [INFO] gui: Point picker finished
+2026-01-15 16:00:22,555 [INFO] gui: Starting point picker
+2026-01-15 16:00:22,555 [INFO] picker: Point picker started
+2026-01-15 16:00:22,986 [INFO] picker: Point picked at (1402, 505)
+2026-01-15 16:00:22,987 [INFO] gui: Point picker finished
+2026-01-15 16:00:23,779 [INFO] gui: Starting point picker
+2026-01-15 16:00:23,780 [INFO] picker: Point picker started
+2026-01-15 16:00:24,392 [INFO] picker: Point picked at (1444, 443)
+2026-01-15 16:00:24,393 [INFO] gui: Point picker finished
+2026-01-15 16:00:25,290 [INFO] gui: Starting point picker
+2026-01-15 16:00:25,291 [INFO] picker: Point picker started
+2026-01-15 16:00:25,768 [INFO] picker: Point picked at (1469, 433)
+2026-01-15 16:00:25,769 [INFO] gui: Point picker finished
+2026-01-15 16:00:26,537 [INFO] gui: Starting point picker
+2026-01-15 16:00:26,538 [INFO] picker: Point picker started
+2026-01-15 16:00:26,930 [INFO] picker: Point picked at (1586, 396)
+2026-01-15 16:00:26,931 [INFO] gui: Point picker finished
+2026-01-15 16:00:27,834 [INFO] gui: Starting point picker
+2026-01-15 16:00:27,835 [INFO] picker: Point picker started
+2026-01-15 16:00:28,280 [INFO] picker: Point picked at (1446, 389)
+2026-01-15 16:00:28,281 [INFO] gui: Point picker finished
+2026-01-15 16:00:29,128 [INFO] gui: Starting point picker
+2026-01-15 16:00:29,128 [INFO] picker: Point picker started
+2026-01-15 16:00:29,903 [INFO] picker: Point picked at (1382, 998)
+2026-01-15 16:00:29,904 [INFO] gui: Point picker finished
+2026-01-15 16:00:34,118 [DEBUG] controller: Toggle requested
+2026-01-15 16:00:34,119 [INFO] engine: Engine thread starting
+2026-01-15 16:00:34,120 [INFO] controller: Engine started
+2026-01-15 16:00:58,037 [DEBUG] controller: Toggle requested
+2026-01-15 16:00:58,037 [INFO] engine: Stopping engine
+2026-01-15 16:00:58,038 [INFO] controller: Engine stopped
+2026-01-15 16:01:09,923 [DEBUG] controller: Toggle requested
+2026-01-15 16:01:09,923 [INFO] engine: Engine thread starting
+2026-01-15 16:01:09,924 [INFO] controller: Engine started
+2026-01-15 16:01:18,476 [DEBUG] controller: Toggle requested
+2026-01-15 16:01:18,477 [INFO] engine: Stopping engine
+2026-01-15 16:01:18,481 [INFO] controller: Engine stopped
+2026-01-15 16:01:23,732 [DEBUG] controller: Toggle requested
+2026-01-15 16:01:23,732 [INFO] engine: Engine thread starting
+2026-01-15 16:01:23,733 [INFO] controller: Engine started
+2026-01-15 16:01:34,149 [DEBUG] controller: Toggle requested
+2026-01-15 16:01:34,149 [INFO] engine: Stopping engine
+2026-01-15 16:01:34,150 [INFO] controller: Engine stopped
+2026-01-15 16:01:41,972 [DEBUG] controller: Toggle requested
+2026-01-15 16:01:41,973 [INFO] engine: Engine thread starting
+2026-01-15 16:01:41,973 [INFO] controller: Engine started
+2026-01-15 16:01:46,850 [DEBUG] controller: Toggle requested
+2026-01-15 16:01:46,850 [INFO] engine: Stopping engine
+2026-01-15 16:01:46,852 [INFO] controller: Engine stopped
+2026-01-15 16:01:51,948 [DEBUG] controller: Toggle requested
+2026-01-15 16:01:51,948 [INFO] engine: Engine thread starting
+2026-01-15 16:01:51,949 [INFO] controller: Engine started
+2026-01-15 16:02:15,607 [DEBUG] controller: Toggle requested
+2026-01-15 16:02:15,608 [INFO] engine: Stopping engine
+2026-01-15 16:02:15,609 [INFO] controller: Engine stopped
+2026-01-15 16:02:51,009 [DEBUG] controller: Toggle requested
+2026-01-15 16:02:51,010 [INFO] engine: Engine thread starting
+2026-01-15 16:02:51,011 [INFO] controller: Engine started
+2026-01-15 16:03:19,221 [DEBUG] controller: Toggle requested
+2026-01-15 16:03:19,222 [INFO] engine: Stopping engine
+2026-01-15 16:03:19,222 [INFO] controller: Engine stopped
+2026-01-15 16:03:25,535 [DEBUG] controller: Toggle requested
+2026-01-15 16:03:25,536 [INFO] engine: Engine thread starting
+2026-01-15 16:03:25,537 [INFO] controller: Engine started
+2026-01-15 16:03:31,684 [DEBUG] controller: Toggle requested
+2026-01-15 16:03:31,684 [INFO] engine: Stopping engine
+2026-01-15 16:03:31,686 [INFO] controller: Engine stopped
+2026-01-15 16:03:33,647 [INFO] gui: Starting point picker
+2026-01-15 16:03:33,648 [INFO] picker: Point picker started
+2026-01-15 16:03:34,388 [INFO] picker: Point picked at (1424, 460)
+2026-01-15 16:03:34,389 [INFO] gui: Point picker finished
+2026-01-15 16:03:35,429 [INFO] gui: Starting point picker
+2026-01-15 16:03:35,429 [INFO] picker: Point picker started
+2026-01-15 16:03:35,964 [INFO] picker: Point picked at (1512, 411)
+2026-01-15 16:03:35,964 [INFO] gui: Point picker finished
+2026-01-15 16:03:36,901 [INFO] gui: Starting point picker
+2026-01-15 16:03:36,902 [INFO] picker: Point picker started
+2026-01-15 16:03:37,442 [INFO] picker: Point picked at (1471, 462)
+2026-01-15 16:03:37,443 [INFO] gui: Point picker finished
+2026-01-15 16:03:38,372 [INFO] gui: Starting point picker
+2026-01-15 16:03:38,372 [INFO] picker: Point picker started
+2026-01-15 16:03:38,835 [INFO] picker: Point picked at (1443, 451)
+2026-01-15 16:03:38,838 [INFO] gui: Point picker finished
+2026-01-15 16:03:39,795 [INFO] gui: Starting point picker
+2026-01-15 16:03:39,795 [INFO] picker: Point picker started
+2026-01-15 16:03:40,594 [INFO] picker: Point picked at (1448, 460)
+2026-01-15 16:03:40,595 [INFO] gui: Point picker finished
+2026-01-15 16:03:41,635 [DEBUG] controller: Toggle requested
+2026-01-15 16:03:41,636 [INFO] engine: Engine thread starting
+2026-01-15 16:03:41,636 [INFO] controller: Engine started
+2026-01-15 16:07:44,927 [DEBUG] controller: Toggle requested
+2026-01-15 16:07:44,928 [INFO] engine: Stopping engine
+2026-01-15 16:07:44,928 [INFO] controller: Engine stopped
+2026-01-15 16:08:29,547 [DEBUG] controller: Toggle requested
+2026-01-15 16:08:29,547 [INFO] engine: Engine thread starting
+2026-01-15 16:08:29,548 [INFO] controller: Engine started
+2026-01-15 16:17:25,145 [DEBUG] controller: Toggle requested
+2026-01-15 16:17:25,146 [INFO] engine: Stopping engine
+2026-01-15 16:17:25,148 [INFO] controller: Engine stopped
+2026-01-15 16:23:48,065 [DEBUG] controller: Toggle requested
+2026-01-15 16:23:48,066 [INFO] engine: Engine thread starting
+2026-01-15 16:23:48,067 [INFO] controller: Engine started
+2026-01-15 16:35:09,415 [DEBUG] controller: Toggle requested
+2026-01-15 16:35:09,416 [INFO] engine: Stopping engine
+2026-01-15 16:35:09,417 [INFO] controller: Engine stopped
+2026-01-15 16:36:03,911 [DEBUG] controller: Toggle requested
+2026-01-15 16:36:03,912 [INFO] engine: Engine thread starting
+2026-01-15 16:36:03,912 [INFO] controller: Engine started
+2026-01-15 16:43:10,717 [DEBUG] controller: Toggle requested
+2026-01-15 16:43:10,717 [INFO] engine: Stopping engine
+2026-01-15 16:43:10,728 [INFO] controller: Engine stopped
+2026-01-15 16:43:44,585 [DEBUG] controller: Toggle requested
+2026-01-15 16:43:44,586 [INFO] engine: Engine thread starting
+2026-01-15 16:43:44,588 [INFO] controller: Engine started
+2026-01-15 17:00:15,047 [DEBUG] controller: Toggle requested
+2026-01-15 17:00:15,048 [INFO] engine: Stopping engine
+2026-01-15 17:00:15,051 [INFO] controller: Engine stopped
+2026-01-15 17:00:56,946 [DEBUG] controller: Toggle requested
+2026-01-15 17:00:56,947 [INFO] engine: Engine thread starting
+2026-01-15 17:00:56,949 [INFO] controller: Engine started
+2026-01-15 17:20:55,847 [DEBUG] controller: Toggle requested
+2026-01-15 17:20:55,848 [INFO] engine: Stopping engine
+2026-01-15 17:20:55,848 [INFO] controller: Engine stopped
+2026-01-15 17:21:49,067 [DEBUG] controller: Toggle requested
+2026-01-15 17:21:49,068 [INFO] engine: Engine thread starting
+2026-01-15 17:21:49,070 [INFO] controller: Engine started
+2026-01-15 17:24:41,660 [DEBUG] controller: Toggle requested
+2026-01-15 17:24:41,661 [INFO] engine: Stopping engine
+2026-01-15 17:24:41,662 [INFO] controller: Engine stopped
+2026-01-15 17:25:25,615 [DEBUG] controller: Toggle requested
+2026-01-15 17:25:25,616 [INFO] engine: Engine thread starting
+2026-01-15 17:25:25,617 [INFO] controller: Engine started
+2026-01-15 17:25:27,719 [DEBUG] controller: Toggle requested
+2026-01-15 17:25:27,720 [INFO] engine: Stopping engine
+2026-01-15 17:25:27,725 [INFO] controller: Engine stopped
+2026-01-15 17:25:29,924 [DEBUG] controller: Toggle requested
+2026-01-15 17:25:29,925 [INFO] engine: Engine thread starting
+2026-01-15 17:25:29,925 [INFO] controller: Engine started
+2026-01-15 17:25:51,612 [DEBUG] controller: Toggle requested
+2026-01-15 17:25:51,612 [INFO] engine: Stopping engine
+2026-01-15 17:25:51,613 [INFO] controller: Engine stopped
+2026-01-15 17:26:19,329 [INFO] gui: Starting point picker
+2026-01-15 17:26:19,330 [INFO] picker: Point picker started
+2026-01-15 17:26:20,318 [INFO] picker: Point picked at (1380, 538)
+2026-01-15 17:26:20,319 [INFO] gui: Point picker finished
+2026-01-15 17:26:21,527 [INFO] gui: Starting point picker
+2026-01-15 17:26:21,528 [INFO] picker: Point picker started
+2026-01-15 17:26:22,605 [INFO] picker: Point picked at (1461, 539)
+2026-01-15 17:26:22,605 [INFO] gui: Point picker finished
+2026-01-15 17:26:23,718 [INFO] gui: Starting point picker
+2026-01-15 17:26:23,719 [INFO] picker: Point picker started
+2026-01-15 17:26:24,788 [INFO] picker: Point picked at (1557, 560)
+2026-01-15 17:26:24,789 [INFO] gui: Point picker finished
+2026-01-15 17:26:26,071 [INFO] gui: Starting point picker
+2026-01-15 17:26:26,072 [INFO] picker: Point picker started
+2026-01-15 17:26:27,083 [INFO] picker: Point picked at (1628, 552)
+2026-01-15 17:26:27,083 [INFO] gui: Point picker finished
+2026-01-15 17:26:28,012 [INFO] gui: Starting point picker
+2026-01-15 17:26:28,012 [INFO] picker: Point picker started
+2026-01-15 17:26:29,970 [INFO] picker: Point picked at (1658, 481)
+2026-01-15 17:26:29,971 [INFO] gui: Point picker finished
+2026-01-15 17:26:30,962 [INFO] gui: Starting point picker
+2026-01-15 17:26:30,963 [INFO] picker: Point picker started
+2026-01-15 17:26:31,913 [INFO] picker: Point picked at (1574, 504)
+2026-01-15 17:26:31,914 [INFO] gui: Point picker finished
+2026-01-15 17:26:32,873 [INFO] gui: Starting point picker
+2026-01-15 17:26:32,874 [INFO] picker: Point picker started
+2026-01-15 17:26:33,920 [INFO] picker: Point picked at (1488, 494)
+2026-01-15 17:26:33,921 [INFO] gui: Point picker finished
+2026-01-15 17:26:34,737 [INFO] gui: Starting point picker
+2026-01-15 17:26:34,738 [INFO] picker: Point picker started
+2026-01-15 17:26:35,696 [INFO] picker: Point picked at (1419, 498)
+2026-01-15 17:26:35,697 [INFO] gui: Point picker finished
+2026-01-15 17:26:36,745 [INFO] gui: Starting point picker
+2026-01-15 17:26:36,745 [INFO] picker: Point picker started
+2026-01-15 17:26:37,599 [INFO] picker: Point picked at (1379, 497)
+2026-01-15 17:26:37,605 [INFO] gui: Point picker finished
+2026-01-15 17:26:38,647 [INFO] gui: Starting point picker
+2026-01-15 17:26:38,647 [INFO] picker: Point picker started
+2026-01-15 17:26:39,678 [INFO] picker: Point picked at (1305, 494)
+2026-01-15 17:26:39,678 [INFO] gui: Point picker finished
+2026-01-15 17:26:40,663 [INFO] gui: Starting point picker
+2026-01-15 17:26:40,664 [INFO] picker: Point picker started
+2026-01-15 17:26:42,165 [INFO] picker: Point picked at (1297, 455)
+2026-01-15 17:26:42,170 [INFO] gui: Point picker finished
+2026-01-15 17:26:43,189 [INFO] gui: Starting point picker
+2026-01-15 17:26:43,190 [INFO] picker: Point picker started
+2026-01-15 17:26:44,020 [INFO] picker: Point picked at (1386, 436)
+2026-01-15 17:26:44,020 [INFO] gui: Point picker finished
+2026-01-15 17:26:44,939 [INFO] gui: Starting point picker
+2026-01-15 17:26:44,940 [INFO] picker: Point picker started
+2026-01-15 17:26:45,803 [INFO] picker: Point picked at (1448, 463)
+2026-01-15 17:26:45,811 [INFO] gui: Point picker finished
+2026-01-15 17:26:46,692 [INFO] gui: Starting point picker
+2026-01-15 17:26:46,692 [INFO] picker: Point picker started
+2026-01-15 17:26:47,451 [INFO] picker: Point picked at (1531, 461)
+2026-01-15 17:26:47,459 [INFO] gui: Point picker finished
+2026-01-15 17:26:48,330 [INFO] gui: Starting point picker
+2026-01-15 17:26:48,331 [INFO] picker: Point picker started
+2026-01-15 17:26:49,321 [INFO] picker: Point picked at (1590, 447)
+2026-01-15 17:26:49,321 [INFO] gui: Point picker finished
+2026-01-15 17:26:50,114 [INFO] gui: Starting point picker
+2026-01-15 17:26:50,115 [INFO] picker: Point picker started
+2026-01-15 17:26:51,057 [INFO] picker: Point picked at (1622, 440)
+2026-01-15 17:26:51,057 [INFO] gui: Point picker finished
+2026-01-15 17:26:51,984 [INFO] gui: Starting point picker
+2026-01-15 17:26:51,985 [INFO] picker: Point picker started
+2026-01-15 17:26:52,816 [INFO] picker: Point picked at (1382, 988)
+2026-01-15 17:26:52,817 [INFO] gui: Point picker finished
+2026-01-15 17:26:53,704 [INFO] gui: Starting point picker
+2026-01-15 17:26:53,705 [INFO] picker: Point picker started
+2026-01-15 17:26:54,847 [INFO] picker: Point picked at (1615, 363)
+2026-01-15 17:26:54,848 [INFO] gui: Point picker finished
+2026-01-15 17:26:55,880 [INFO] gui: Starting point picker
+2026-01-15 17:26:55,880 [INFO] picker: Point picker started
+2026-01-15 17:26:56,671 [INFO] picker: Point picked at (1487, 375)
+2026-01-15 17:26:56,671 [INFO] gui: Point picker finished
+2026-01-15 17:26:57,455 [INFO] gui: Starting point picker
+2026-01-15 17:26:57,455 [INFO] picker: Point picker started
+2026-01-15 17:26:58,397 [INFO] picker: Point picked at (1396, 363)
+2026-01-15 17:26:58,398 [INFO] gui: Point picker finished
+2026-01-15 17:26:59,807 [INFO] gui: Starting point picker
+2026-01-15 17:26:59,808 [INFO] picker: Point picker started
+2026-01-15 17:27:00,564 [INFO] picker: Point picked at (1343, 372)
+2026-01-15 17:27:00,565 [INFO] gui: Point picker finished
+2026-01-15 17:27:01,533 [INFO] gui: Starting point picker
+2026-01-15 17:27:01,533 [INFO] picker: Point picker started
+2026-01-15 17:27:02,524 [INFO] picker: Point picked at (1387, 324)
+2026-01-15 17:27:02,525 [INFO] gui: Point picker finished
+2026-01-15 17:27:03,708 [INFO] gui: Starting point picker
+2026-01-15 17:27:03,708 [INFO] picker: Point picker started
+2026-01-15 17:27:05,058 [INFO] picker: Point picked at (1454, 291)
+2026-01-15 17:27:05,058 [INFO] gui: Point picker finished
+2026-01-15 17:27:06,187 [INFO] gui: Starting point picker
+2026-01-15 17:27:06,188 [INFO] picker: Point picker started
+2026-01-15 17:27:07,146 [INFO] picker: Point picked at (1505, 319)
+2026-01-15 17:27:07,148 [INFO] gui: Point picker finished
+2026-01-15 17:27:08,123 [INFO] gui: Starting point picker
+2026-01-15 17:27:08,123 [INFO] picker: Point picker started
+2026-01-15 17:27:09,161 [INFO] picker: Point picked at (1579, 310)
+2026-01-15 17:27:09,162 [INFO] gui: Point picker finished
+2026-01-15 17:27:11,083 [INFO] gui: Starting point picker
+2026-01-15 17:27:11,084 [INFO] picker: Point picker started
+2026-01-15 17:27:12,503 [INFO] picker: Point picked at (1657, 344)
+2026-01-15 17:27:12,504 [INFO] gui: Point picker finished
+2026-01-15 17:27:17,374 [DEBUG] controller: Toggle requested
+2026-01-15 17:27:17,375 [INFO] engine: Engine thread starting
+2026-01-15 17:27:17,375 [INFO] controller: Engine started
+2026-01-15 17:43:38,518 [DEBUG] controller: Toggle requested
+2026-01-15 17:43:38,519 [INFO] engine: Stopping engine
+2026-01-15 17:43:38,520 [INFO] controller: Engine stopped
+2026-01-15 17:44:00,768 [DEBUG] controller: Toggle requested
+2026-01-15 17:44:00,769 [INFO] engine: Engine thread starting
+2026-01-15 17:44:00,769 [INFO] controller: Engine started
+2026-01-15 17:44:08,068 [DEBUG] controller: Toggle requested
+2026-01-15 17:44:08,069 [INFO] engine: Stopping engine
+2026-01-15 17:44:08,069 [INFO] controller: Engine stopped
+2026-01-15 17:44:11,227 [INFO] gui: Starting point picker
+2026-01-15 17:44:11,227 [INFO] picker: Point picker started
+2026-01-15 17:44:13,928 [INFO] picker: Point picked at (1397, 326)
+2026-01-15 17:44:13,929 [INFO] gui: Point picker finished
+2026-01-15 17:44:15,032 [INFO] gui: Starting point picker
+2026-01-15 17:44:15,033 [INFO] picker: Point picker started
+2026-01-15 17:44:16,367 [INFO] picker: Point picked at (1485, 309)
+2026-01-15 17:44:16,367 [INFO] gui: Point picker finished
+2026-01-15 17:44:17,750 [INFO] gui: Starting point picker
+2026-01-15 17:44:17,751 [INFO] picker: Point picker started
+2026-01-15 17:44:19,021 [INFO] picker: Point picked at (1551, 297)
+2026-01-15 17:44:19,022 [INFO] gui: Point picker finished
+2026-01-15 17:44:21,580 [DEBUG] controller: Toggle requested
+2026-01-15 17:44:21,582 [INFO] engine: Engine thread starting
+2026-01-15 17:44:21,583 [INFO] controller: Engine started
+2026-01-15 17:45:23,488 [DEBUG] controller: Toggle requested
+2026-01-15 17:45:23,488 [INFO] engine: Stopping engine
+2026-01-15 17:45:23,513 [INFO] controller: Engine stopped
+2026-01-15 17:45:47,387 [DEBUG] controller: Toggle requested
+2026-01-15 17:45:47,388 [INFO] engine: Engine thread starting
+2026-01-15 17:45:47,388 [INFO] controller: Engine started
+2026-01-15 17:46:17,914 [DEBUG] controller: Toggle requested
+2026-01-15 17:46:17,915 [INFO] engine: Stopping engine
+2026-01-15 17:46:17,916 [INFO] controller: Engine stopped
+2026-01-15 17:46:25,494 [DEBUG] controller: Toggle requested
+2026-01-15 17:46:25,495 [INFO] engine: Engine thread starting
+2026-01-15 17:46:25,497 [INFO] controller: Engine started
+2026-01-15 17:49:34,290 [DEBUG] controller: Toggle requested
+2026-01-15 17:49:34,291 [INFO] engine: Stopping engine
+2026-01-15 17:49:34,292 [INFO] controller: Engine stopped
+2026-01-15 17:49:39,365 [DEBUG] controller: Toggle requested
+2026-01-15 17:49:39,367 [INFO] engine: Engine thread starting
+2026-01-15 17:49:39,368 [INFO] controller: Engine started
+2026-01-15 17:54:09,500 [DEBUG] controller: Toggle requested
+2026-01-15 17:54:09,500 [INFO] engine: Stopping engine
+2026-01-15 17:54:09,502 [INFO] controller: Engine stopped
+2026-01-15 17:54:29,753 [DEBUG] controller: Toggle requested
+2026-01-15 17:54:29,754 [INFO] engine: Engine thread starting
+2026-01-15 17:54:29,755 [INFO] controller: Engine started
+2026-01-15 17:57:54,888 [DEBUG] controller: Toggle requested
+2026-01-15 17:57:54,888 [INFO] engine: Stopping engine
+2026-01-15 17:57:54,889 [INFO] controller: Engine stopped
+2026-01-15 17:57:58,079 [DEBUG] controller: Toggle requested
+2026-01-15 17:57:58,080 [INFO] engine: Engine thread starting
+2026-01-15 17:57:58,081 [INFO] controller: Engine started
+2026-01-15 18:29:35,590 [DEBUG] controller: Toggle requested
+2026-01-15 18:29:35,591 [INFO] engine: Stopping engine
+2026-01-15 18:29:35,612 [INFO] controller: Engine stopped
+2026-01-15 18:29:56,277 [DEBUG] controller: Toggle requested
+2026-01-15 18:29:56,278 [INFO] engine: Engine thread starting
+2026-01-15 18:29:56,279 [INFO] controller: Engine started
+2026-01-15 18:31:22,151 [DEBUG] controller: Toggle requested
+2026-01-15 18:31:22,151 [INFO] engine: Stopping engine
+2026-01-15 18:31:22,157 [INFO] controller: Engine stopped
+2026-01-15 18:31:33,574 [DEBUG] controller: Toggle requested
+2026-01-15 18:31:33,575 [INFO] engine: Engine thread starting
+2026-01-15 18:31:33,575 [INFO] controller: Engine started
+2026-01-15 18:32:58,160 [DEBUG] controller: Toggle requested
+2026-01-15 18:32:58,161 [INFO] engine: Stopping engine
+2026-01-15 18:32:58,162 [INFO] controller: Engine stopped
+2026-01-15 18:33:09,567 [DEBUG] controller: Toggle requested
+2026-01-15 18:33:09,568 [INFO] engine: Engine thread starting
+2026-01-15 18:33:09,569 [INFO] controller: Engine started
+2026-01-15 18:33:17,769 [DEBUG] controller: Toggle requested
+2026-01-15 18:33:17,769 [INFO] engine: Stopping engine
+2026-01-15 18:33:17,789 [INFO] controller: Engine stopped
+2026-01-15 18:33:20,857 [DEBUG] controller: Toggle requested
+2026-01-15 18:33:20,857 [INFO] engine: Engine thread starting
+2026-01-15 18:33:20,859 [INFO] controller: Engine started
+2026-01-15 18:36:53,852 [DEBUG] controller: Toggle requested
+2026-01-15 18:36:53,852 [INFO] engine: Stopping engine
+2026-01-15 18:36:53,854 [INFO] controller: Engine stopped
+2026-01-15 18:37:05,038 [DEBUG] controller: Toggle requested
+2026-01-15 18:37:05,040 [INFO] engine: Engine thread starting
+2026-01-15 18:37:05,041 [INFO] controller: Engine started
+2026-01-15 18:39:10,987 [DEBUG] controller: Toggle requested
+2026-01-15 18:39:10,987 [INFO] engine: Stopping engine
+2026-01-15 18:39:10,988 [INFO] controller: Engine stopped
+2026-01-15 18:39:21,056 [DEBUG] controller: Toggle requested
+2026-01-15 18:39:21,057 [INFO] engine: Engine thread starting
+2026-01-15 18:39:21,059 [INFO] controller: Engine started
+2026-01-15 18:44:57,492 [DEBUG] controller: Toggle requested
+2026-01-15 18:44:57,493 [INFO] engine: Stopping engine
+2026-01-15 18:44:57,493 [INFO] controller: Engine stopped
+2026-01-15 18:45:05,264 [DEBUG] controller: Toggle requested
+2026-01-15 18:45:05,265 [INFO] engine: Engine thread starting
+2026-01-15 18:45:05,266 [INFO] controller: Engine started
+2026-01-15 18:46:49,737 [DEBUG] controller: Toggle requested
+2026-01-15 18:46:49,737 [INFO] engine: Stopping engine
+2026-01-15 18:46:49,738 [INFO] controller: Engine stopped
+2026-01-15 18:46:49,799 [DEBUG] controller: Toggle requested
+2026-01-15 18:46:49,799 [INFO] engine: Engine thread starting
+2026-01-15 18:46:49,800 [INFO] controller: Engine started
+2026-01-15 18:46:53,661 [DEBUG] controller: Toggle requested
+2026-01-15 18:46:53,661 [INFO] engine: Stopping engine
+2026-01-15 18:46:53,680 [INFO] controller: Engine stopped
+2026-01-15 18:47:01,430 [DEBUG] controller: Toggle requested
+2026-01-15 18:47:01,431 [INFO] engine: Engine thread starting
+2026-01-15 18:47:01,433 [INFO] controller: Engine started
+2026-01-15 18:47:23,839 [DEBUG] controller: Toggle requested
+2026-01-15 18:47:23,840 [INFO] engine: Stopping engine
+2026-01-15 18:47:23,858 [INFO] controller: Engine stopped
+2026-01-15 18:47:30,522 [DEBUG] controller: Toggle requested
+2026-01-15 18:47:30,522 [INFO] engine: Engine thread starting
+2026-01-15 18:47:30,523 [INFO] controller: Engine started
+2026-01-15 18:51:04,740 [DEBUG] controller: Toggle requested
+2026-01-15 18:51:04,741 [INFO] engine: Stopping engine
+2026-01-15 18:51:04,742 [INFO] controller: Engine stopped
+2026-01-15 18:51:06,448 [DEBUG] controller: Toggle requested
+2026-01-15 18:51:06,450 [INFO] engine: Engine thread starting
+2026-01-15 18:51:06,451 [INFO] controller: Engine started
+2026-01-15 18:51:09,681 [DEBUG] controller: Toggle requested
+2026-01-15 18:51:09,682 [INFO] engine: Stopping engine
+2026-01-15 18:51:09,682 [INFO] controller: Engine stopped
+2026-01-15 18:51:15,274 [DEBUG] controller: Toggle requested
+2026-01-15 18:51:15,275 [INFO] engine: Engine thread starting
+2026-01-15 18:51:15,276 [INFO] controller: Engine started
+2026-01-15 18:51:16,334 [DEBUG] controller: Toggle requested
+2026-01-15 18:51:16,334 [INFO] engine: Stopping engine
+2026-01-15 18:51:16,343 [INFO] controller: Engine stopped
+2026-01-15 18:51:19,273 [DEBUG] controller: Toggle requested
+2026-01-15 18:51:19,275 [INFO] engine: Engine thread starting
+2026-01-15 18:51:19,276 [INFO] controller: Engine started
+2026-01-15 18:53:13,409 [DEBUG] controller: Toggle requested
+2026-01-15 18:53:13,409 [INFO] engine: Stopping engine
+2026-01-15 18:53:13,411 [INFO] controller: Engine stopped
+2026-01-15 18:53:19,677 [DEBUG] controller: Toggle requested
+2026-01-15 18:53:19,678 [INFO] engine: Engine thread starting
+2026-01-15 18:53:19,680 [INFO] controller: Engine started
+2026-01-15 18:53:43,226 [DEBUG] controller: Toggle requested
+2026-01-15 18:53:43,227 [INFO] engine: Stopping engine
+2026-01-15 18:53:43,229 [INFO] controller: Engine stopped
+2026-01-15 18:53:48,791 [DEBUG] controller: Toggle requested
+2026-01-15 18:53:48,792 [INFO] engine: Engine thread starting
+2026-01-15 18:53:48,792 [INFO] controller: Engine started
+2026-01-15 18:53:49,302 [DEBUG] controller: Toggle requested
+2026-01-15 18:53:49,302 [INFO] engine: Stopping engine
+2026-01-15 18:53:49,313 [INFO] controller: Engine stopped
+2026-01-15 18:53:51,023 [DEBUG] controller: Toggle requested
+2026-01-15 18:53:51,024 [INFO] engine: Engine thread starting
+2026-01-15 18:53:51,024 [INFO] controller: Engine started
+2026-01-15 18:57:06,253 [DEBUG] controller: Toggle requested
+2026-01-15 18:57:06,253 [INFO] engine: Stopping engine
+2026-01-15 18:57:06,255 [INFO] controller: Engine stopped
+2026-01-15 18:57:08,525 [DEBUG] controller: Toggle requested
+2026-01-15 18:57:08,526 [INFO] engine: Engine thread starting
+2026-01-15 18:57:08,528 [INFO] controller: Engine started
+2026-01-15 18:57:13,853 [DEBUG] controller: Toggle requested
+2026-01-15 18:57:13,854 [INFO] engine: Stopping engine
+2026-01-15 18:57:13,856 [INFO] controller: Engine stopped
+2026-01-15 18:57:18,220 [DEBUG] controller: Toggle requested
+2026-01-15 18:57:18,221 [INFO] engine: Engine thread starting
+2026-01-15 18:57:18,223 [INFO] controller: Engine started
+2026-01-15 18:57:19,144 [DEBUG] controller: Toggle requested
+2026-01-15 18:57:19,144 [INFO] engine: Stopping engine
+2026-01-15 18:57:19,146 [INFO] controller: Engine stopped
+2026-01-15 18:57:21,275 [DEBUG] controller: Toggle requested
+2026-01-15 18:57:21,276 [INFO] engine: Engine thread starting
+2026-01-15 18:57:21,277 [INFO] controller: Engine started
+2026-01-15 18:58:32,105 [DEBUG] controller: Toggle requested
+2026-01-15 18:58:32,105 [INFO] engine: Stopping engine
+2026-01-15 18:58:32,107 [INFO] controller: Engine stopped
+2026-01-15 18:58:36,967 [DEBUG] controller: Toggle requested
+2026-01-15 18:58:36,968 [INFO] engine: Engine thread starting
+2026-01-15 18:58:36,969 [INFO] controller: Engine started
+2026-01-15 18:58:59,595 [DEBUG] controller: Toggle requested
+2026-01-15 18:58:59,595 [INFO] engine: Stopping engine
+2026-01-15 18:58:59,596 [INFO] controller: Engine stopped
+2026-01-15 18:59:01,855 [DEBUG] controller: Toggle requested
+2026-01-15 18:59:01,856 [INFO] engine: Engine thread starting
+2026-01-15 18:59:01,856 [INFO] controller: Engine started
+2026-01-15 19:01:03,852 [DEBUG] controller: Toggle requested
+2026-01-15 19:01:03,852 [INFO] engine: Stopping engine
+2026-01-15 19:01:03,853 [INFO] controller: Engine stopped
+2026-01-15 19:01:07,755 [DEBUG] controller: Toggle requested
+2026-01-15 19:01:07,756 [INFO] engine: Engine thread starting
+2026-01-15 19:01:07,757 [INFO] controller: Engine started
+2026-01-15 19:01:08,699 [DEBUG] controller: Toggle requested
+2026-01-15 19:01:08,700 [INFO] engine: Stopping engine
+2026-01-15 19:01:08,701 [INFO] controller: Engine stopped
+2026-01-15 19:01:10,274 [DEBUG] controller: Toggle requested
+2026-01-15 19:01:10,274 [INFO] engine: Engine thread starting
+2026-01-15 19:01:10,275 [INFO] controller: Engine started
+2026-01-16 00:44:41,971 [DEBUG] controller: Toggle requested
+2026-01-16 00:44:41,975 [INFO] engine: Stopping engine
+2026-01-16 00:44:42,006 [INFO] controller: Engine stopped
+2026-01-16 00:44:58,850 [DEBUG] controller: Toggle requested
+2026-01-16 00:44:58,852 [INFO] engine: Engine thread starting
+2026-01-16 00:44:58,854 [INFO] controller: Engine started
+2026-01-16 00:45:05,621 [DEBUG] controller: Toggle requested
+2026-01-16 00:45:05,621 [INFO] engine: Stopping engine
+2026-01-16 00:45:05,623 [INFO] controller: Engine stopped
+2026-01-16 00:45:55,893 [DEBUG] controller: Toggle requested
+2026-01-16 00:45:55,894 [INFO] engine: Engine thread starting
+2026-01-16 00:45:55,896 [INFO] controller: Engine started
+2026-01-16 00:46:17,440 [DEBUG] controller: Toggle requested
+2026-01-16 00:46:17,442 [INFO] engine: Stopping engine
+2026-01-16 00:46:17,454 [INFO] controller: Engine stopped
+2026-01-16 00:46:21,462 [DEBUG] controller: Toggle requested
+2026-01-16 00:46:21,464 [INFO] engine: Engine thread starting
+2026-01-16 00:46:21,468 [INFO] controller: Engine started
+2026-01-16 00:46:22,975 [DEBUG] controller: Toggle requested
+2026-01-16 00:46:22,976 [INFO] engine: Stopping engine
+2026-01-16 00:46:23,018 [INFO] controller: Engine stopped
+2026-01-16 00:46:25,373 [DEBUG] controller: Toggle requested
+2026-01-16 00:46:25,374 [INFO] engine: Engine thread starting
+2026-01-16 00:46:25,377 [INFO] controller: Engine started
+2026-01-16 00:46:29,729 [WARNING] controller: Kill switch triggered
+2026-01-16 00:46:29,730 [INFO] hotkeys: Hotkeys stopped
+2026-01-16 00:46:29,731 [INFO] engine: Stopping engine
