@@ -41,6 +41,14 @@ class MOUSEINPUT(ctypes.Structure):
 class INPUT(ctypes.Structure):
     _fields_ = [("type", wintypes.DWORD), ("mi", MOUSEINPUT)]
 
+
+_inputs = (INPUT * 3)()
+_inputs[0].type = INPUT_MOUSE
+_inputs[0].mi.dwFlags = MOUSEEVENTF_MOVE | MOUSEEVENTF_ABSOLUTE
+_inputs[1].type = INPUT_MOUSE
+_inputs[2].type = INPUT_MOUSE
+
+
 def send_click(x, y, click_type):
     x = max(VX, min(x, VX + VW - 1))
     y = max(VY, min(y, VY + VH - 1))
@@ -49,15 +57,14 @@ def send_click(x, y, click_type):
     abs_y = int((y - VY) * 65535 / VH)
 
     down = MOUSEEVENTF_LEFTDOWN if click_type == "left" else MOUSEEVENTF_RIGHTDOWN
-    up   = MOUSEEVENTF_LEFTUP   if click_type == "left" else MOUSEEVENTF_RIGHTUP
+    up = MOUSEEVENTF_LEFTUP if click_type == "left" else MOUSEEVENTF_RIGHTUP
 
-    inputs = (INPUT * 3)(
-        INPUT(INPUT_MOUSE, MOUSEINPUT(abs_x, abs_y, 0, MOUSEEVENTF_MOVE | MOUSEEVENTF_ABSOLUTE, 0, 0)),
-        INPUT(INPUT_MOUSE, MOUSEINPUT(0, 0, 0, down, 0, 0)),
-        INPUT(INPUT_MOUSE, MOUSEINPUT(0, 0, 0, up, 0, 0)),
-    )
+    _inputs[0].mi.dx = abs_x
+    _inputs[0].mi.dy = abs_y
+    _inputs[1].mi.dwFlags = down
+    _inputs[2].mi.dwFlags = up
 
-    if user32.SendInput(3, ctypes.byref(inputs), ctypes.sizeof(INPUT)) == 0:
+    if user32.SendInput(3, ctypes.byref(_inputs), ctypes.sizeof(INPUT)) == 0:
         raise ctypes.WinError(ctypes.get_last_error())
 
 class ClickEngine(QObject):
