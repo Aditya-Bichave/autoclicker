@@ -1,6 +1,7 @@
 from PySide6.QtWidgets import QWidget
-from PySide6.QtCore import Qt
+from PySide6.QtCore import Qt, QPoint
 from PySide6.QtGui import QPainter, QPen, QColor, QBrush
+from core.screen_utils import get_virtual_screen_rect
 
 class Overlay(QWidget):
     def __init__(self):
@@ -8,11 +9,11 @@ class Overlay(QWidget):
         self.setWindowFlags(Qt.WindowStaysOnTopHint | Qt.FramelessWindowHint | Qt.Tool)
         self.setAttribute(Qt.WA_TranslucentBackground)
         self.setAttribute(Qt.WA_TransparentForMouseEvents)
+        self.setAttribute(Qt.WA_ShowWithoutActivating)
 
-        # In multi-monitor setup, showFullScreen usually covers one screen.
-        # Ideally we cover virtual geometry.
-        # For simple v2, start with FullScreen on primary or current.
-        self.showFullScreen()
+        # In multi-monitor setup, use virtual geometry
+        vx, vy, vw, vh = get_virtual_screen_rect()
+        self.setGeometry(vx, vy, vw, vh)
 
         self.points = []
 
@@ -24,8 +25,21 @@ class Overlay(QWidget):
         painter = QPainter(self)
         painter.setRenderHint(QPainter.Antialiasing)
 
+        vx, vy, vw, vh = get_virtual_screen_rect()
+
         for p in self.points:
             x, y = p["x"], p["y"]
+
+            if isinstance(x, float):
+                abs_x = int(vx + x * vw)
+                abs_y = int(vy + y * vh)
+            else:
+                abs_x, abs_y = int(x), int(y)
+
+            # Map global to local
+            local_p = self.mapFromGlobal(QPoint(abs_x, abs_y))
+            lx, ly = local_p.x(), local_p.y()
+
             group = p.get("group", 0)
 
             # Simple color coding based on group
@@ -44,4 +58,4 @@ class Overlay(QWidget):
             color.setAlpha(50)
             painter.setBrush(QBrush(color))
 
-            painter.drawEllipse(x - 10, y - 10, 20, 20)
+            painter.drawEllipse(lx - 10, ly - 10, 20, 20)

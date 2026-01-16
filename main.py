@@ -12,7 +12,7 @@ import sys
 from PySide6.QtWidgets import QApplication
 from ui.styles import DARK_STYLE
 from core.profile_manager import ProfileManager
-from core.macro_manager import MacroManager
+from macro.manager import MacroManager
 from ui.main_window import MainWindow
 from core.controller import Controller
 from core.logging_setup import get_logger

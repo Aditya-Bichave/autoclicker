@@ -20,9 +20,12 @@ class ProfileManager:
              "busy_wait_us": 500,
              "batch_size": 1,
              "jitter": {"px": 0, "percent": 0},
-             "cps_cap": 0
+             "cps_cap": 0,
+             "thread_priority": "normal",
+             "retry_count": 3,
+             "overload_threshold": 10
         },
-        "schedule": {"enabled": False, "time": "12:00", "repeat": False},
+        "schedule": {"enabled": False, "time": "12:00", "repeat": False, "type": "profile", "macro_name": ""},
         "failsafe": {"enabled": False, "timeout": 60}
     }
 
