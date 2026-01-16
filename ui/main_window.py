@@ -6,6 +6,10 @@ from ui.point_model import PointModel
 from ui.overlay import Overlay
 from ui.styles import DARK_STYLE, LIGHT_STYLE
 from core.logging_setup import get_logger
+from core.screen_utils import get_virtual_screen_rect
+from ui.point_editor import PointEditorDialog
+from core.global_config import GlobalConfig
+from PySide6.QtGui import QShortcut, QKeySequence
 
 log = get_logger("ui")
 
@@ -20,7 +24,7 @@ class MainWindow(QWidget):
     # Macro Signals
     record_macro_requested = Signal()
     stop_recording_requested = Signal()
-    play_macro_requested = Signal(str, float)
+    play_macro_requested = Signal(str, float, bool)
     stop_macro_requested = Signal()
     delete_macro_requested = Signal(str)
 
@@ -41,6 +45,8 @@ class MainWindow(QWidget):
         self.point_model.rowsRemoved.connect(self._on_config_changed)
         self.point_model.rowsMoved.connect(self._on_config_changed)
         self.point_model.modelReset.connect(self._on_config_changed)
+
+        self.global_config = GlobalConfig()
 
         self.tabs = QTabWidget(self)
         self.click_tab = QWidget()
@@ -68,12 +74,26 @@ class MainWindow(QWidget):
         layout.addWidget(self.tabs)
 
         self.status_bar_layout = QHBoxLayout()
+        self.lbl_sched_info = QLabel("")
         self.lbl_cps = QLabel("CPS: 0")
+        self.status_bar_layout.addWidget(self.lbl_sched_info)
         self.status_bar_layout.addStretch()
         self.status_bar_layout.addWidget(self.lbl_cps)
         layout.addLayout(self.status_bar_layout)
 
+        # Shortcuts
+        self.shortcut_save = QShortcut(QKeySequence("Ctrl+S"), self)
+        self.shortcut_save.activated.connect(self._save)
+
+        self.shortcut_save_as = QShortcut(QKeySequence("Ctrl+Shift+S"), self)
+        self.shortcut_save_as.activated.connect(self._save_as)
+
         self._picker = None
+
+        # Apply Global Config
+        self.theme_combo.setCurrentText(self.global_config.get("theme", "Dark"))
+        if self.global_config.get("compact_mode", False):
+            self.chk_compact.setChecked(True)
 
     def _build_top_bar(self, p):
         self.top_bar_layout = QHBoxLayout()
@@ -149,6 +169,12 @@ class MainWindow(QWidget):
         self.delay.valueChanged.connect(self._on_config_changed)
         self.delay.setToolTip("Delay between clicks in milliseconds")
 
+        self.hold_time = QSpinBox()
+        self.hold_time.setRange(0, 5000)
+        self.hold_time.setSuffix(" ms")
+        self.hold_time.valueChanged.connect(self._on_config_changed)
+        self.hold_time.setToolTip("Duration to hold mouse button down")
+
         self.click_type = QComboBox()
         self.click_type.addItems(["left", "right"])
         self.click_type.currentTextChanged.connect(self._on_config_changed)
@@ -221,6 +247,8 @@ class MainWindow(QWidget):
         l.addWidget(self.status)
         l.addWidget(QLabel("Delay (ms)"))
         l.addWidget(self.delay)
+        l.addWidget(QLabel("Hold Time (ms)"))
+        l.addWidget(self.hold_time)
         l.addWidget(QLabel("Click Type"))
         l.addWidget(self.click_type)
         l.addWidget(QLabel("Click Mode"))
@@ -239,53 +267,81 @@ class MainWindow(QWidget):
             return
 
         menu = QMenu(self)
+        duplicate = menu.addAction("Duplicate")
+        edit = menu.addAction("Edit...")
         delete = menu.addAction("Delete")
         set_group = menu.addAction("Set Group...")
 
         action = menu.exec(self.points_view.mapToGlobal(pos))
 
+        if not action: return
+
         if action == delete:
-            indexes = self.points_view.selectedIndexes()
-            rows = sorted(set(i.row() for i in indexes), reverse=True)
-            for r in rows:
-                self.point_model.remove_at(r)
-
-        elif action == set_group:
-            indexes = self.points_view.selectedIndexes()
-            if not indexes: return
-
-            group, ok = QInputDialog.getInt(self, "Set Group", "Group ID (0-9):", 0, 0, 9)
-            if ok:
-                for i in indexes:
-                    self.point_model.set_group(i.row(), group)
-
+            self._delete_selected_points()
         elif action == duplicate:
-            indexes = self.points_view.selectedIndexes()
-            if not indexes: return
+            self._duplicate_selected_points()
+        elif action == edit:
+            self._edit_selected_point()
+        elif action == set_group:
+            self._set_group_selected_points()
 
-            # Sort by row to keep order
-            rows = sorted([i.row() for i in indexes])
-            new_points = []
+    def keyPressEvent(self, event):
+        if event.key() == Qt.Key_Delete:
+             if self.points_view.hasFocus():
+                  self._delete_selected_points()
+        super().keyPressEvent(event)
 
-            # Get data for selected points
-            current_points = self.point_model.get_points()
-            for r in rows:
-                if 0 <= r < len(current_points):
-                    # Deep copy the dict to avoid ref issues
-                    p = current_points[r].copy()
-                    # Offset slightly so user sees it
+    def _delete_selected_points(self):
+        indexes = self.points_view.selectedIndexes()
+        rows = sorted(set(i.row() for i in indexes), reverse=True)
+        for r in rows:
+            self.point_model.remove_at(r)
+
+    def _duplicate_selected_points(self):
+        indexes = self.points_view.selectedIndexes()
+        if not indexes: return
+
+        rows = sorted([i.row() for i in indexes])
+        new_points = []
+        current_points = self.point_model.get_points()
+
+        for r in rows:
+            if 0 <= r < len(current_points):
+                p = current_points[r].copy()
+                # Offset slightly? If float, 0.01? If int, 10?
+                if isinstance(p["x"], float):
+                    p["x"] += 0.01
+                    p["y"] += 0.01
+                else:
                     p["x"] += 10
                     p["y"] += 10
-                    new_points.append(p)
+                new_points.append(p)
 
-            # Insert them
-            # Access underlying list directly to copy full properties
-            # This relies on internal implementation of PointModel but is safe given we just read it.
-            # To be 100% proper we would add 'add_point_dict' to model, but we are updating main_window now.
-            # We can use set_points to refresh everything or just append.
-            all_points = self.point_model.get_points()
-            all_points.extend(new_points)
-            self.point_model.set_points(all_points)
+        # Append new points
+        all_points = current_points + new_points
+        self.point_model.set_points(all_points)
+
+    def _edit_selected_point(self):
+        indexes = self.points_view.selectedIndexes()
+        if not indexes: return
+        # Edit the first selected point
+        row = indexes[0].row()
+        current_points = self.point_model.get_points()
+        if 0 <= row < len(current_points):
+            p = current_points[row]
+            dlg = PointEditorDialog(p, self)
+            if dlg.exec():
+                new_data = dlg.get_data()
+                self.point_model.update_point(row, new_data)
+
+    def _set_group_selected_points(self):
+        indexes = self.points_view.selectedIndexes()
+        if not indexes: return
+
+        group, ok = QInputDialog.getInt(self, "Set Group", "Group ID (0-9):", 0, 0, 9)
+        if ok:
+            for i in indexes:
+                self.point_model.set_group(i.row(), group)
 
     # ---------------- SETTINGS TAB ----------------
 
@@ -315,16 +371,27 @@ class MainWindow(QWidget):
         self.chk_compact = QCheckBox("Compact Mode")
         self.chk_compact.toggled.connect(self._toggle_compact_mode)
 
+        self.chk_failsafe = QCheckBox("Enable Failsafe Timeout")
+        self.chk_failsafe.toggled.connect(self._on_config_changed)
+
+        self.spin_timeout = QSpinBox()
+        self.spin_timeout.setRange(1, 3600)
+        self.spin_timeout.setSuffix(" s")
+        self.spin_timeout.valueChanged.connect(self._on_config_changed)
+
         for w in [
             QLabel("Toggle Key"), self.toggle_key,
             QLabel("Kill Key"), self.kill_key,
             QLabel("Theme"), self.theme_combo,
             self.chk_compact,
+            self.chk_failsafe,
+            QLabel("Timeout (s)"), self.spin_timeout,
             save, save_as
         ]:
             l.addWidget(w)
 
     def _toggle_compact_mode(self, checked):
+        self.global_config.set("compact_mode", checked)
         if checked:
             self.tabs.hide()
             self.setFixedSize(420, 150)
@@ -373,6 +440,7 @@ class MainWindow(QWidget):
             self.chk_compact.setChecked(False)
 
     def _on_theme_changed(self, text):
+        self.global_config.set("theme", text)
         app = QApplication.instance()
         if text == "Light":
             app.setStyleSheet(LIGHT_STYLE)
@@ -383,6 +451,17 @@ class MainWindow(QWidget):
 
     def _build_tuning_tab(self):
         l = QVBoxLayout(self.tuning_tab)
+
+        presets = QHBoxLayout()
+        btn_safe = QPushButton("Game-Safe")
+        btn_safe.clicked.connect(self._apply_preset_safe)
+        btn_balanced = QPushButton("Balanced")
+        btn_balanced.clicked.connect(self._apply_preset_balanced)
+        btn_max = QPushButton("Max Perf")
+        btn_max.clicked.connect(self._apply_preset_max)
+        presets.addWidget(btn_safe)
+        presets.addWidget(btn_balanced)
+        presets.addWidget(btn_max)
 
         self.chk_game_safe = QCheckBox("Game-Safe Mode")
         self.chk_game_safe.setToolTip("Enforces safe limits: Max 20 CPS, Min Jitter 2px/10%")
@@ -398,12 +477,83 @@ class MainWindow(QWidget):
         self.jitter_pct.setSuffix(" %")
         self.jitter_pct.valueChanged.connect(self._on_config_changed)
 
+        self.cps_cap = QSpinBox()
+        self.cps_cap.setRange(0, 1000)
+        self.cps_cap.setSuffix(" CPS")
+        self.cps_cap.setToolTip("0 = Unlimited")
+        self.cps_cap.valueChanged.connect(self._on_config_changed)
+
+        self.thread_priority = QComboBox()
+        self.thread_priority.addItems(["idle", "lowest", "below_normal", "normal", "above_normal", "highest", "time_critical"])
+        self.thread_priority.currentTextChanged.connect(self._on_config_changed)
+
+        self.busy_wait = QSpinBox()
+        self.busy_wait.setRange(0, 100000)
+        self.busy_wait.setSuffix(" us")
+        self.busy_wait.valueChanged.connect(self._on_config_changed)
+
+        self.batch_size = QSpinBox()
+        self.batch_size.setRange(1, 100)
+        self.batch_size.valueChanged.connect(self._on_config_changed)
+
+        self.retry_count = QSpinBox()
+        self.retry_count.setRange(0, 10)
+        self.retry_count.valueChanged.connect(self._on_config_changed)
+
+        self.overload_thresh = QSpinBox()
+        self.overload_thresh.setRange(1, 1000)
+        self.overload_thresh.valueChanged.connect(self._on_config_changed)
+
+        l.addLayout(presets)
         l.addWidget(self.chk_game_safe)
-        l.addWidget(QLabel("Jitter Radius (Pixels)"))
-        l.addWidget(self.jitter_px)
-        l.addWidget(QLabel("Jitter Delay (Percent)"))
-        l.addWidget(self.jitter_pct)
+
+        g1 = QGridLayout()
+        g1.addWidget(QLabel("Jitter Radius:"), 0, 0)
+        g1.addWidget(self.jitter_px, 0, 1)
+        g1.addWidget(QLabel("Jitter Delay:"), 1, 0)
+        g1.addWidget(self.jitter_pct, 1, 1)
+        g1.addWidget(QLabel("CPS Cap:"), 2, 0)
+        g1.addWidget(self.cps_cap, 2, 1)
+        l.addLayout(g1)
+
+        l.addWidget(QLabel("<b>Advanced Tuning</b>"))
+        g2 = QGridLayout()
+        g2.addWidget(QLabel("Priority:"), 0, 0)
+        g2.addWidget(self.thread_priority, 0, 1)
+        g2.addWidget(QLabel("Busy Wait:"), 1, 0)
+        g2.addWidget(self.busy_wait, 1, 1)
+        g2.addWidget(QLabel("Batch Size:"), 2, 0)
+        g2.addWidget(self.batch_size, 2, 1)
+        g2.addWidget(QLabel("Retry Count:"), 3, 0)
+        g2.addWidget(self.retry_count, 3, 1)
+        g2.addWidget(QLabel("Overload Thresh:"), 4, 0)
+        g2.addWidget(self.overload_thresh, 4, 1)
+        l.addLayout(g2)
+
         l.addStretch()
+
+    def _apply_preset_safe(self):
+        self.chk_game_safe.setChecked(True)
+        self.thread_priority.setCurrentText("normal")
+        self.busy_wait.setValue(0)
+        self.batch_size.setValue(1)
+        self.jitter_px.setValue(max(self.jitter_px.value(), 2))
+        self.jitter_pct.setValue(max(self.jitter_pct.value(), 10))
+        self.cps_cap.setValue(20)
+
+    def _apply_preset_balanced(self):
+        self.chk_game_safe.setChecked(False)
+        self.thread_priority.setCurrentText("above_normal")
+        self.busy_wait.setValue(500)
+        self.batch_size.setValue(1)
+        self.cps_cap.setValue(0)
+
+    def _apply_preset_max(self):
+        self.chk_game_safe.setChecked(False)
+        self.thread_priority.setCurrentText("highest")
+        self.busy_wait.setValue(2000)
+        self.batch_size.setValue(5)
+        self.cps_cap.setValue(0)
 
     # ---------------- SCHEDULE TAB ----------------
 
@@ -417,11 +567,34 @@ class MainWindow(QWidget):
         self.time_sched.setDisplayFormat("HH:mm")
         self.time_sched.timeChanged.connect(self._on_config_changed)
 
+        self.chk_repeat = QCheckBox("Repeat Daily")
+        self.chk_repeat.toggled.connect(self._on_config_changed)
+
+        type_layout = QHBoxLayout()
+        self.radio_profile = QRadioButton("Run Profile")
+        self.radio_macro = QRadioButton("Run Macro")
+        self.radio_profile.setChecked(True)
+        self.bg_type = QButtonGroup(self)
+        self.bg_type.addButton(self.radio_profile)
+        self.bg_type.addButton(self.radio_macro)
+        self.radio_profile.toggled.connect(self._on_config_changed)
+        self.radio_macro.toggled.connect(self._on_config_changed)
+        type_layout.addWidget(self.radio_profile)
+        type_layout.addWidget(self.radio_macro)
+
+        self.combo_macro = QComboBox()
+        self.combo_macro.addItems(self.macro_manager.list_macros())
+        self.combo_macro.currentTextChanged.connect(self._on_config_changed)
+
         self.lbl_sched_status = QLabel("Next Run: -")
 
         l.addWidget(self.chk_sched)
         l.addWidget(QLabel("Start Time:"))
         l.addWidget(self.time_sched)
+        l.addWidget(self.chk_repeat)
+        l.addLayout(type_layout)
+        l.addWidget(QLabel("Macro (if selected):"))
+        l.addWidget(self.combo_macro)
         l.addWidget(self.lbl_sched_status)
         l.addStretch()
 
@@ -456,10 +629,13 @@ class MainWindow(QWidget):
         self.speed_slider.setRange(10, 500)
         self.speed_slider.setValue(100)
 
+        self.chk_instant = QCheckBox("Instant Playback")
+
         l.addWidget(self.macro_list)
         l.addLayout(btns)
         l.addWidget(QLabel("Playback Speed"))
         l.addWidget(self.speed_slider)
+        l.addWidget(self.chk_instant)
 
     def _on_record_toggled(self, checked):
         if checked:
@@ -473,7 +649,8 @@ class MainWindow(QWidget):
         item = self.macro_list.currentItem()
         if item:
             speed = self.speed_slider.value() / 100.0
-            self.play_macro_requested.emit(item.text(), speed)
+            instant = self.chk_instant.isChecked()
+            self.play_macro_requested.emit(item.text(), speed, instant)
 
     def _on_delete_macro_clicked(self):
         item = self.macro_list.currentItem()
@@ -481,19 +658,27 @@ class MainWindow(QWidget):
             self.delete_macro_requested.emit(item.text())
 
     def refresh_macro_list(self):
+        macros = self.macro_manager.list_macros()
         self.macro_list.clear()
-        self.macro_list.addItems(self.macro_manager.list_macros())
+        self.macro_list.addItems(macros)
+        current = self.combo_macro.currentText()
+        self.combo_macro.clear()
+        self.combo_macro.addItems(macros)
+        self.combo_macro.setCurrentText(current)
 
     def load_profile_data(self, p):
         self.profile_name = p["name"]
 
         inputs = [
-            self.profile_combo, self.delay, self.click_type, self.mode,
+            self.profile_combo, self.delay, self.hold_time, self.click_type, self.mode,
             self.toggle_key, self.kill_key, self.point_model,
-            self.jitter_px, self.jitter_pct,
+            self.jitter_px, self.jitter_pct, self.cps_cap,
+            self.thread_priority, self.busy_wait, self.batch_size, self.retry_count, self.overload_thresh,
             self.chk_limit, self.limit_count,
             self.chk_burst, self.burst_size, self.burst_interval,
-            self.chk_sched, self.time_sched, self.chk_game_safe
+            self.chk_sched, self.time_sched, self.chk_repeat, self.radio_profile, self.radio_macro, self.combo_macro,
+            self.chk_failsafe, self.spin_timeout,
+            self.chk_game_safe
         ]
         for w in inputs: w.blockSignals(True)
 
@@ -502,6 +687,7 @@ class MainWindow(QWidget):
         self.profile_combo.setCurrentText(p["name"])
 
         self.delay.setValue(p["delay_ms"])
+        self.hold_time.setValue(p.get("hold_time_ms", 0))
         self.click_type.setCurrentText(p["click_type"])
         self.mode.setCurrentText(p["click_mode"])
 
@@ -524,11 +710,34 @@ class MainWindow(QWidget):
         j = t.get("jitter", {})
         self.jitter_px.setValue(j.get("px", 0))
         self.jitter_pct.setValue(j.get("percent", 0))
+        self.cps_cap.setValue(t.get("cps_cap", 0))
+        self.thread_priority.setCurrentText(t.get("thread_priority", "normal"))
+        self.busy_wait.setValue(t.get("busy_wait_us", 500))
+        self.batch_size.setValue(t.get("batch_size", 1))
+        self.retry_count.setValue(t.get("retry_count", 3))
+        self.overload_thresh.setValue(t.get("overload_threshold", 10))
 
         sch = p.get("schedule", {})
         self.chk_sched.setChecked(sch.get("enabled", False))
         time_str = sch.get("time", "12:00")
         self.time_sched.setTime(QTime.fromString(time_str, "HH:mm"))
+        self.chk_repeat.setChecked(sch.get("repeat", False))
+
+        fs = p.get("failsafe", {})
+        self.chk_failsafe.setChecked(fs.get("enabled", False))
+        self.spin_timeout.setValue(fs.get("timeout", 60))
+
+        if sch.get("type") == "macro":
+            self.radio_macro.setChecked(True)
+        else:
+            self.radio_profile.setChecked(True)
+
+        self.combo_macro.setCurrentText(sch.get("macro_name", ""))
+
+        if sch.get("enabled"):
+             self.lbl_sched_status.setText(f"Scheduled for {time_str}")
+        else:
+             self.lbl_sched_status.setText("Next Run: -")
 
         for w in inputs: w.blockSignals(False)
         self.set_unsaved_indicator(False)
@@ -539,6 +748,7 @@ class MainWindow(QWidget):
         log.info("Starting point picker")
         self.status.setText("Click anywhere to pick a point…")
         self.pick_btn.setEnabled(False)
+        QApplication.setOverrideCursor(Qt.CrossCursor)
 
         self._picker = PointPicker()
         self._picker.point_picked.connect(self._on_point_picked)
@@ -546,11 +756,18 @@ class MainWindow(QWidget):
         self._picker.start()
 
     def _on_point_picked(self, x, y):
-        self.point_model.add_point(x, y)
+        vx, vy, vw, vh = get_virtual_screen_rect()
+        nx = (x - vx) / vw
+        ny = (y - vy) / vh
+        # Clamp 0.0-1.0
+        nx = max(0.0, min(1.0, nx))
+        ny = max(0.0, min(1.0, ny))
+        self.point_model.add_point(nx, ny)
 
     def _picker_finished(self):
         log.info("Point picker finished")
         self.pick_btn.setEnabled(True)
+        QApplication.restoreOverrideCursor()
         self.set_running(False)
 
     # ---------------- PROFILE ----------------
@@ -561,6 +778,11 @@ class MainWindow(QWidget):
     def _save_as(self):
         name, ok = QInputDialog.getText(self, "Save Profile As", "Profile name:")
         if ok and name:
+            if name in self.profile_manager.list_profiles():
+                ret = QMessageBox.question(self, "Overwrite?", f"Profile '{name}' exists. Overwrite?", QMessageBox.Yes | QMessageBox.No)
+                if ret != QMessageBox.Yes:
+                    return
+
             self.profile_name = name
             self.profile_manager.save(name, self.get_config())
 
@@ -568,6 +790,7 @@ class MainWindow(QWidget):
         return {
             "name": self.profile_name,
             "delay_ms": self.delay.value(),
+            "hold_time_ms": self.hold_time.value(),
             "click_type": self.click_type.currentText(),
             "click_mode": self.mode.currentText(),
             "toggle_key": self.toggle_key.currentText(),
@@ -587,11 +810,24 @@ class MainWindow(QWidget):
                 "jitter": {
                     "px": self.jitter_px.value(),
                     "percent": self.jitter_pct.value()
-                }
+                },
+                "cps_cap": self.cps_cap.value(),
+                "thread_priority": self.thread_priority.currentText(),
+                "busy_wait_us": self.busy_wait.value(),
+                "batch_size": self.batch_size.value(),
+                "retry_count": self.retry_count.value(),
+                "overload_threshold": self.overload_thresh.value()
             },
             "schedule": {
                 "enabled": self.chk_sched.isChecked(),
-                "time": self.time_sched.time().toString("HH:mm")
+                "time": self.time_sched.time().toString("HH:mm"),
+                "repeat": self.chk_repeat.isChecked(),
+                "type": "macro" if self.radio_macro.isChecked() else "profile",
+                "macro_name": self.combo_macro.currentText()
+            },
+            "failsafe": {
+                "enabled": self.chk_failsafe.isChecked(),
+                "timeout": self.spin_timeout.value()
             }
         }
 
@@ -600,6 +836,13 @@ class MainWindow(QWidget):
     def set_running(self, running):
         self.status.setText("RUNNING" if running else "STOPPED")
         self.start.setText("STOP" if running else "START")
+
+        self.tabs.setEnabled(not running)
+        self.profile_combo.setEnabled(not running)
+        self.btn_new.setEnabled(not running)
+        self.btn_rename.setEnabled(not running)
+        self.btn_delete.setEnabled(not running)
+        self.btn_preview.setEnabled(not running)
 
     def show_error(self, msg):
         log.error(msg)

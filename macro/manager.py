@@ -1,6 +1,7 @@
 import json
 from pathlib import Path
 from core.logging_setup import get_logger
+from core.screen_utils import get_virtual_screen_rect
 
 log = get_logger("macro_manager")
 
@@ -19,10 +20,12 @@ class MacroManager:
         return sorted(p.stem for p in self.macro_dir.glob("*.json"))
 
     def save(self, name, events):
+        vx, vy, vw, vh = get_virtual_screen_rect()
         path = self.macro_dir / f"{name}.json"
         data = {
             "version": 1,
             "name": name,
+            "resolution": [vw, vh],
             "events": events
         }
         with open(path, "w", encoding="utf-8") as f:

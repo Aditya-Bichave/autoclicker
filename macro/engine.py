@@ -6,30 +6,13 @@ import platform
 from pynput import mouse, keyboard
 from PySide6.QtCore import QObject, Signal
 from core.logging_setup import get_logger
+from core.screen_utils import get_virtual_screen_rect
 
 log = get_logger("macro_engine")
 
-def get_screen_rect():
-    if platform.system() == "Windows":
-        try:
-            user32 = ctypes.WinDLL("user32", use_last_error=True)
-            SM_XVIRTUALSCREEN = 76
-            SM_YVIRTUALSCREEN = 77
-            SM_CXVIRTUALSCREEN = 78
-            SM_CYVIRTUALSCREEN = 79
-            return (
-                user32.GetSystemMetrics(SM_XVIRTUALSCREEN),
-                user32.GetSystemMetrics(SM_YVIRTUALSCREEN),
-                user32.GetSystemMetrics(SM_CXVIRTUALSCREEN),
-                user32.GetSystemMetrics(SM_CYVIRTUALSCREEN)
-            )
-        except:
-            return 0, 0, 1920, 1080
-    else:
-        return 0, 0, 1920, 1080
-
 class MacroRecorder(QObject):
     finished = Signal(list)
+    MAX_DURATION = 3600 # 1 hour
 
     def __init__(self):
         super().__init__()
@@ -44,7 +27,7 @@ class MacroRecorder(QObject):
         self.events = []
         self.start_time = time.perf_counter()
         self.running = True
-        self.rect = get_screen_rect()
+        self.rect = get_virtual_screen_rect()
 
         self._m_listener = mouse.Listener(
             on_click=self._on_click,
@@ -73,6 +56,10 @@ class MacroRecorder(QObject):
     def _record(self, type_, data):
         if not self.running: return
         dt = time.perf_counter() - self.start_time
+        if dt > self.MAX_DURATION:
+            log.warning("Macro recording reached max duration")
+            self.stop()
+            return
         self.events.append({"t": dt, "type": type_, "data": data})
 
     def _on_click(self, x, y, button, pressed):
@@ -106,26 +93,30 @@ class MacroPlayer(QObject):
         self.mouse_ctl = mouse.Controller()
         self.key_ctl = keyboard.Controller()
 
-    def play(self, events, speed=1.0):
+    def play(self, events, speed=1.0, instant=False):
         if self.running: return
         self.running = True
-        log.info(f"Macro playback started. Speed: {speed}x")
-        threading.Thread(target=self._play_loop, args=(events, speed), daemon=True).start()
+        log.info(f"Macro playback started. Speed: {speed}x, Instant: {instant}")
+        threading.Thread(target=self._play_loop, args=(events, speed, instant), daemon=True).start()
 
     def stop(self):
         if self.running:
             self.running = False
             log.info("Macro playback stopped")
 
-    def _play_loop(self, events, speed):
+    def _play_loop(self, events, speed, instant):
         start_time = time.perf_counter()
         try:
             for event in events:
                 if not self.running: break
 
-                target_time = event["t"] / speed
-                while time.perf_counter() - start_time < target_time:
-                    if not self.running: break
+                if not instant:
+                    target_time = event["t"] / speed
+                    while time.perf_counter() - start_time < target_time:
+                        if not self.running: break
+                        time.sleep(0.001)
+                else:
+                    # Minimum safety delay even for instant
                     time.sleep(0.001)
 
                 if not self.running: break
@@ -139,7 +130,7 @@ class MacroPlayer(QObject):
     def _execute_event(self, event):
         t = event["type"]
         d = event["data"]
-        vx, vy, vw, vh = get_screen_rect()
+        vx, vy, vw, vh = get_virtual_screen_rect()
 
         if t == "mouse_click":
             abs_x = int(vx + d["x"] * vw)

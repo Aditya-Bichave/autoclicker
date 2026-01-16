@@ -2,8 +2,8 @@
 from PySide6.QtCore import QTimer, QObject, Signal, Qt
 from PySide6.QtWidgets import QInputDialog, QMessageBox
 from engine.click_engine import ClickEngine
-from engine.macro_engine import MacroRecorder, MacroPlayer
-from core.scheduler import Scheduler
+from macro.engine import MacroRecorder, MacroPlayer
+from scheduler.scheduler import Scheduler
 from core.hotkeys import Hotkeys
 from core.logging_setup import get_logger
 import time
@@ -129,9 +129,14 @@ class Controller(QObject):
                 self.engine.start(self.ui.get_config())
 
     def kill(self):
-        log.warning("Kill switch triggered")
-        # Emit signal to handle closing on main thread
-        self.close_app_signal.emit()
+        log.warning("Kill switch triggered (Emergency Stop)")
+        self.emergency_stop()
+        self.show_error_signal.emit("Emergency Stop Triggered!")
+
+    def emergency_stop(self):
+        if self.engine.running: self.engine.stop()
+        if self.recorder.running: self.recorder.stop()
+        if self.player.running: self.player.stop()
 
     def _close_app(self):
         try:
@@ -172,7 +177,8 @@ class Controller(QObject):
             timeout = failsafe.get("timeout", 60)
             if time.time() - self.start_time > timeout:
                 log.warning("Failsafe timeout reached. Stopping.")
-                self.kill() # Using kill to ensure everything stops
+                self.emergency_stop()
+                self.show_error_signal.emit("Failsafe Timeout Reached!")
 
     def load_profile(self, name):
         log.info(f"Switching to profile: {name}")
@@ -267,16 +273,41 @@ class Controller(QObject):
 
     def _on_scheduled_job(self, job):
         log.info(f"Executing scheduled job: {job}")
-        if self.engine.running:
-            self.toggle()
-            # Allow time for engine to stop via signals?
-            # Toggle is async if engine running? No, engine.stop() waits for thread join.
-            # So it is synchronous here.
 
-        if job["profile"] != self.app_state.active_profile["name"]:
-            self.load_profile(job["profile"])
+        # Stop everything first
+        if self.engine.running: self.engine.stop()
+        if self.recorder.running: self.recorder.stop()
+        if self.player.running: self.player.stop()
 
-        self.toggle()
+        profile_name = job["profile"]
+        if profile_name != self.app_state.active_profile["name"]:
+            self.load_profile(profile_name)
+
+        job_type = job.get("type", "profile")
+
+        if job_type == "macro":
+            macro_name = job.get("macro_name", "")
+            if macro_name:
+                self.play_macro(macro_name, 1.0)
+            else:
+                log.error("Scheduled macro has no name")
+        else:
+            # Start Click Engine
+            if not self.engine.running:
+                 self.engine.start(self.ui.get_config())
+                 # update UI manually since we didn't use toggle?
+                 # engine.started signal handles it.
+
+        # Handle One-Shot
+        if not job.get("repeat", False):
+            # Disable schedule in profile
+            profile = self.profile_manager.load(profile_name)
+            if profile["schedule"]["enabled"]:
+                profile["schedule"]["enabled"] = False
+                self.profile_manager.save(profile_name, profile)
+                # If this was active profile, reload UI to update checkbox
+                if profile_name == self.app_state.active_profile["name"]:
+                     self.load_profile(profile_name)
 
     # Macro Methods
 
@@ -295,19 +326,20 @@ class Controller(QObject):
             if hasattr(self.ui, "refresh_macro_list"):
                 self.ui.refresh_macro_list()
 
-    def play_macro(self, name, speed):
+    def play_macro(self, name, speed, instant=False):
         if self.engine.running: self.toggle()
         if self.recorder.running: self.stop_recording()
 
         events = self.macro_manager.load(name)
         if events:
-            self.player.play(events, speed)
+            self.player.play(events, speed, instant)
 
     def stop_macro(self):
         self.player.stop()
 
     def _on_playback_finished(self):
         log.info("Playback finished")
+        self.watchdog_timer.stop()
 
     def delete_macro(self, name):
         ret = QMessageBox.question(self.ui, "Delete Macro", f"Delete {name}?",

@@ -1,5 +1,6 @@
 import json
 from PySide6.QtCore import QAbstractListModel, Qt, QModelIndex, QMimeData
+from PySide6.QtGui import QColor
 
 class PointModel(QAbstractListModel):
     def __init__(self, points=None):
@@ -18,14 +19,29 @@ class PointModel(QAbstractListModel):
         if not isinstance(point, dict):
             return str(point)
 
+        x = point.get('x', 0)
+        y = point.get('y', 0)
+        sx = f"{x:.4f}" if isinstance(x, float) else str(x)
+        sy = f"{y:.4f}" if isinstance(y, float) else str(y)
+
         if role == Qt.DisplayRole:
             label = point.get("label", "")
+            pt_type = point.get("type", "left")
+            delay = point.get("delay", 0)
+            extra = f" ({pt_type}, {delay}ms)"
             if label:
-                return f"{point.get('x',0)}, {point.get('y',0)} - {label}"
-            return f"{point.get('x',0)}, {point.get('y',0)} ({point.get('type','left')})"
+                return f"{sx}, {sy} - {label}{extra}"
+            return f"{sx}, {sy}{extra}"
 
         elif role == Qt.EditRole:
-            return f"{point.get('x',0)},{point.get('y',0)}"
+            return f"{sx},{sy}"
+
+        elif role == Qt.ForegroundRole:
+            group = point.get("group", 0)
+            if group == 0: return QColor(0, 200, 0)
+            if group == 1: return QColor(0, 0, 255)
+            if group == 2: return QColor(255, 0, 0)
+            return QColor(200, 200, 0)
 
         elif role == Qt.UserRole:
             return point
@@ -40,8 +56,15 @@ class PointModel(QAbstractListModel):
             # Simple parsing of "x,y"
             parts = value.split(',')
             if len(parts) >= 2:
-                x = int(parts[0].strip())
-                y = int(parts[1].strip())
+                s_x = parts[0].strip()
+                s_y = parts[1].strip()
+
+                if "." in s_x or "." in s_y:
+                    x = float(s_x)
+                    y = float(s_y)
+                else:
+                    x = int(float(s_x))
+                    y = int(float(s_y))
 
                 self._points[index.row()]['x'] = x
                 self._points[index.row()]['y'] = y
@@ -118,4 +141,10 @@ class PointModel(QAbstractListModel):
         if 0 <= row < len(self._points):
             self._points[row]['group'] = group_id
             idx = self.index(row)
-            self.dataChanged.emit(idx, idx, [Qt.DisplayRole, Qt.UserRole])
+            self.dataChanged.emit(idx, idx, [Qt.DisplayRole, Qt.UserRole, Qt.ForegroundRole])
+
+    def update_point(self, row, data):
+        if 0 <= row < len(self._points):
+            self._points[row].update(data)
+            idx = self.index(row)
+            self.dataChanged.emit(idx, idx, [Qt.DisplayRole, Qt.UserRole, Qt.ForegroundRole])
